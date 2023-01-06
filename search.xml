@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>L298N驱动</title>
+      <link href="/2023/01/06/L298N%E9%A9%B1%E5%8A%A8/"/>
+      <url>/2023/01/06/L298N%E9%A9%B1%E5%8A%A8/</url>
+      
+        <content type="html"><![CDATA[<center><h1 style="color:yellow">    L298N    </h1></center><h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><div align = "center"><img src="https://pic2.zhimg.com/80/v2-625094b40f2c5230af1b70f5e3c6ba35_1440w.webp"><hr><img src="https://pic4.zhimg.com/80/v2-8fb3efbd0d82669a496a179a46655e47_1440w.webp"><hr><img src="https://pic2.zhimg.com/80/v2-8ed7420890b8dc5b3dd5f0b5c02a7b11_1440w.webp"></div><h3 id="接线方式"><a href="#接线方式" class="headerlink" title="接线方式"></a>接线方式</h3><blockquote><ul><li><p>工作电压: 9~12v</p></li><li><p>将电池盒或者锂电池的<strong>正极</strong>接到上图的<strong>vcc</strong></p></li><li><p>如果安装了5v跳线帽, 5v接口是用来给单片机供电的, 这种情况下, 供电电源的GND要分两条, 模块和单片机共地</p><blockquote><p>如果用5V来给单片机供电的话, 可能会出问题, 因为没有稳压, 可能会有掉压的情况.</p></blockquote></li><li><p>电机分别接上图8, 9 引脚7</p></li></ul></blockquote><h3 id="驱动方式"><a href="#驱动方式" class="headerlink" title="驱动方式"></a>驱动方式</h3><table><thead><tr><th align="center">电机</th><th align="center">旋转方式</th><th align="center">IN1</th><th align="center">IN2</th><th align="center">IN3</th><th align="center">IN4</th></tr></thead><tbody><tr><td align="center">M1</td><td align="center">正转</td><td align="center">高</td><td align="center">低</td><td align="center">&#x2F;</td><td align="center">&#x2F;</td></tr><tr><td align="center"></td><td align="center">反转</td><td align="center">低</td><td align="center">高</td><td align="center">&#x2F;</td><td align="center">&#x2F;</td></tr><tr><td align="center"></td><td align="center">停止</td><td align="center">低</td><td align="center">低</td><td align="center">&#x2F;</td><td align="center">&#x2F;</td></tr><tr><td align="center">M2</td><td align="center">正转</td><td align="center">&#x2F;</td><td align="center">&#x2F;</td><td align="center">高</td><td align="center">低</td></tr><tr><td align="center"></td><td align="center">反转</td><td align="center">&#x2F;</td><td align="center">&#x2F;</td><td align="center">低</td><td align="center">高</td></tr><tr><td align="center"></td><td align="center">停止</td><td align="center">&#x2F;</td><td align="center">&#x2F;</td><td align="center">低</td><td align="center">低</td></tr></tbody></table><blockquote><p>如果要用PWM调速的话, 要拔掉<strong>ENA</strong>和<strong>ENB</strong>的跳线帽, 将PWM输出到这两个引脚来实现PWM调速.</p><p>IN口控制正反转, EN口用来调速</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 模块 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hello hexo</title>
       <link href="/2022/12/07/hello-hexo/"/>
       <url>/2022/12/07/hello-hexo/</url>
