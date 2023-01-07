@@ -9,20 +9,21 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="L298N        原理图  接线方式  工作电压: 9~12v  将电池盒或者锂电池的正极接到上图的vcc  如果安装了5v跳线帽, 5v接口是用来给单片机供电的, 这种情况下, 供电电源的GND要分两条, 模块和单片机共地  如果用5V来给单片机供电的话, 可能会出问题, 因为没有稳压, 可能会有掉压的情况.   电机分别接上图8, 9 引脚7    驱动方式   电机 旋转方">
+  <meta name="description" content="L298N原理图及驱动方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="L298N驱动">
-<meta property="og:url" content="http://blog.xsaistudio.cn/2023/01/06/L298N%E9%A9%B1%E5%8A%A8/index.html">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/01/06/L298N%E9%A9%B1%E5%8A%A8/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="L298N        原理图  接线方式  工作电压: 9~12v  将电池盒或者锂电池的正极接到上图的vcc  如果安装了5v跳线帽, 5v接口是用来给单片机供电的, 这种情况下, 供电电源的GND要分两条, 模块和单片机共地  如果用5V来给单片机供电的话, 可能会出问题, 因为没有稳压, 可能会有掉压的情况.   电机分别接上图8, 9 引脚7    驱动方式   电机 旋转方">
+<meta property="og:description" content="L298N原理图及驱动方式">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-625094b40f2c5230af1b70f5e3c6ba35_1440w.webp">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-8fb3efbd0d82669a496a179a46655e47_1440w.webp">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-8ed7420890b8dc5b3dd5f0b5c02a7b11_1440w.webp">
 <meta property="article:published_time" content="2023-01-06T10:00:10.000Z">
-<meta property="article:modified_time" content="2023-01-06T17:47:57.301Z">
+<meta property="article:modified_time" content="2023-01-07T03:35:46.526Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="模块">
+<meta property="article:tag" content="单片机">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic2.zhimg.com/80/v2-625094b40f2c5230af1b70f5e3c6ba35_1440w.webp">
   
@@ -122,7 +123,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/one/" style="font-size: 10px;">one</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 10px;">模块</a>
+						<a href="/tags/first/" style="font-size: 10px;">first</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 20px;">模块</a>
 					</div>
 				</section>
 				
@@ -205,7 +206,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E5%9D%97/" rel="tag">模块</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E5%9D%97/" rel="tag">模块</a></li></ul>
 	</div>
 
         
@@ -217,9 +218,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <center><h1 style="color:yellow">
+        <p>L298N原理图及驱动方式</p>
+<span id="more"></span>
+
+<hr>
+<center><h1 style="color:yellow">
     L298N
     </h1></center>
+
 
 
 <h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><div align = "center"><img src="https://pic2.zhimg.com/80/v2-625094b40f2c5230af1b70f5e3c6ba35_1440w.webp"><hr><img src="https://pic4.zhimg.com/80/v2-8fb3efbd0d82669a496a179a46655e47_1440w.webp"><hr><img src="https://pic2.zhimg.com/80/v2-8ed7420890b8dc5b3dd5f0b5c02a7b11_1440w.webp"></div>
@@ -311,6 +317,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2023/01/07/%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97HC-05/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          蓝牙模块HC-05
+        
+      </div>
+    </a>
   
   
     <a href="/2022/12/07/hello-hexo/" id="article-nav-older" class="article-nav-link-wrap">
