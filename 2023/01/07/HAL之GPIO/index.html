@@ -3,23 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hello hexo | YWM&#39;S BLOG</title>
+  <title>HAL之GPIO | YWM&#39;S BLOG</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="THE first text">
+  <meta name="description" content="常用的GPIO函数以及工作模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello hexo">
-<meta property="og:url" content="https://blog.xsaistudio.cn/2022/12/07/hello-hexo/index.html">
+<meta property="og:title" content="HAL之GPIO">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/01/07/HAL%E4%B9%8BGPIO/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="THE first text">
+<meta property="og:description" content="常用的GPIO函数以及工作模式">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-12-07T14:37:30.000Z">
-<meta property="article:modified_time" content="2023-01-07T02:44:40.995Z">
+<meta property="article:published_time" content="2023-01-07T09:40:59.000Z">
+<meta property="article:modified_time" content="2023-01-07T12:24:45.797Z">
 <meta property="article:author" content="YWM">
-<meta property="article:tag" content="first">
+<meta property="article:tag" content="单片机">
+<meta property="article:tag" content="HAL">
+<meta property="article:tag" content="STM32">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
@@ -174,11 +176,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HAL之GPIO" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/12/07/hello-hexo/" class="article-date">
-  	<time datetime="2022-12-07T14:37:30.000Z" itemprop="datePublished">2022-12-07</time>
+      <a href="/2023/01/07/HAL%E4%B9%8BGPIO/" class="article-date">
+  	<time datetime="2023-01-07T09:40:59.000Z" itemprop="datePublished">2023-01-07</time>
 </a>
     </div>
   
@@ -191,7 +193,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hello hexo
+      HAL之GPIO
       
     </h1>
   
@@ -201,7 +203,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/first/" rel="tag">first</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HAL/" rel="tag">HAL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
 	</div>
 
         
@@ -213,7 +215,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>HELLO LLS</strong><br>你好！世界，你好！YWM，AND I LOVE YOU LSQ</p>
+        <p>常用的GPIO函数以及工作模式</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h4 id="输入函数"><a href="#输入函数" class="headerlink" title="输入函数"></a>输入函数</h4><blockquote>
+<p>HAL_GPIO_ReadPin()		&#x2F;&#x2F;读取引脚电平</p>
+</blockquote>
+<h4 id="输出函数"><a href="#输出函数" class="headerlink" title="输出函数"></a>输出函数</h4><blockquote>
+<p>HAL_GPIO_WritePin()		&#x2F;&#x2F;写入高低电平</p>
+<p>HAL_GPIO_TogglePin()		&#x2F;&#x2F;反转电平</p>
+</blockquote>
+<h4 id="中断函数"><a href="#中断函数" class="headerlink" title="中断函数"></a>中断函数</h4><blockquote>
+<p>HAL_GPIO_EXTI_IRQHandler()		&#x2F;&#x2F;外部中断服务函数</p>
+<p>HAL_GPIO_EXTI_Callback()			&#x2F;&#x2F;外部中断回调函数</p>
+</blockquote>
+<h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><h3 id="输入模式GPIO-Input"><a href="#输入模式GPIO-Input" class="headerlink" title="输入模式GPIO_Input"></a>输入模式GPIO_Input</h3><p>浮空输入</p>
+<blockquote>
+<p>引脚电平是真实的外部连接器件电压，电平有不确定性</p>
+</blockquote>
+<p>上拉输入</p>
+<blockquote>
+<p>默认通过电阻上拉到VCC,不接外部器件时可以读出高电平</p>
+</blockquote>
+<p>下拉输入</p>
+<blockquote>
+<p>默认通过电阻下拉到GND,不接外部器件时可以读出低电平</p>
+</blockquote>
+<h3 id="输出模式"><a href="#输出模式" class="headerlink" title="输出模式"></a>输出模式</h3><p>推挽(push pull)</p>
+<blockquote>
+<p>一种使用一对选择性地从相连负载灌电流或者拉电流的器件的电路。</p>
+</blockquote>
+<p>开漏(open drain)</p>
+<blockquote>
+<p>高电平时没有驱动能力，需要借助外部上拉电阻完成对外驱动。</p>
+</blockquote>
+<p>浮空(no-pull-)</p>
+<blockquote>
+<p>引脚电平是真实的外部连接器件电压，电平有不确定性</p>
+</blockquote>
+<p>上拉</p>
+<blockquote>
+<p>默认通过电阻上拉到VCC,不接外部器件时可以输出高电平</p>
+</blockquote>
+<p>下拉</p>
+<blockquote>
+<p>默认通过电阻下拉到GND,不接外部器件时可以输出低电平 </p>
+</blockquote>
 
       
     </div>
@@ -223,18 +271,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/01/06/L298N%E9%A9%B1%E5%8A%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/01/07/HAL%E4%B9%8BUART/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          L298N驱动
+          HAL之UART
         
       </div>
     </a>
   
   
-    <a href="/2022/12/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2023/01/07/%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97HC-05/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝牙模块HC-05</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
