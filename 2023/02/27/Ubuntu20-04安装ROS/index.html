@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu20.04安装ROS | YWM&#39;S BLOG</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ubuntu20.04安装ROS基本步骤，遇到的问题，小乌龟测试。ROS系统目前流行有两个版本：noetic和melodic。还有很多ROS发行版。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu20.04安装ROS">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/02/27/Ubuntu20-04%E5%AE%89%E8%A3%85ROS/index.html">
+<meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="Ubuntu20.04安装ROS基本步骤，遇到的问题，小乌龟测试。ROS系统目前流行有两个版本：noetic和melodic。还有很多ROS发行版。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-27T02:37:50.000Z">
+<meta property="article:modified_time" content="2023-02-27T14:14:28.473Z">
+<meta property="article:author" content="YWM">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="Gazebo">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.328888.xyz/2022/12/08/fO2za.jpeg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 15px;">HAL</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 15px;">STM32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/first/" style="font-size: 10px;">first</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 15px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xsaistudio.cn">studio</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Ubuntu20-04安装ROS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/02/27/Ubuntu20-04%E5%AE%89%E8%A3%85ROS/" class="article-date">
+  	<time datetime="2023-02-27T02:37:50.000Z" itemprop="datePublished">2023-02-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu20.04安装ROS
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gazebo/" rel="tag">Gazebo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ubuntu20.04安装ROS基本步骤，遇到的问题，小乌龟测试。ROS系统目前流行有两个版本：noetic和melodic。还有很多ROS发行版。</p>
+<span id="more"></span>
+
+<h2 id="安装ROS"><a href="#安装ROS" class="headerlink" title="安装ROS"></a>安装ROS</h2><h3 id="添加软件包路径"><a href="#添加软件包路径" class="headerlink" title="添加软件包路径"></a>添加软件包路径</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置ROS版本密钥（哪里拿的还不知道）"><a href="#设置ROS版本密钥（哪里拿的还不知道）" class="headerlink" title="设置ROS版本密钥（哪里拿的还不知道）"></a>设置ROS版本密钥（哪里拿的还不知道）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install curl 			#安装curl工具</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装、初始化环境变量"><a href="#安装、初始化环境变量" class="headerlink" title="安装、初始化环境变量"></a>安装、初始化环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update				#更新一下源</span><br><span class="line">sudo apt install ros-noetic-desktop-full		#安装ROS完全版</span><br><span class="line">source /opt/ros/noetic/setup.bash		</span><br><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc							#均为配置环境变量</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装各种依赖包"><a href="#安装各种依赖包" class="headerlink" title="安装各种依赖包"></a>安装各种依赖包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential				#安装各种依赖包</span><br></pre></td></tr></table></figure>
+
+<h3 id="管理各种工具的软件"><a href="#管理各种工具的软件" class="headerlink" title="管理各种工具的软件"></a>管理各种工具的软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-rosdep				#安装管理工具</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化rosdep（先别执行这里，先看下去）"><a href="#初始化rosdep（先别执行这里，先看下去）" class="headerlink" title="初始化rosdep（先别执行这里，先看下去）"></a>初始化rosdep（先别执行这里，先看下去）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rosdep init		</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换rosdep相关链接"><a href="#替换rosdep相关链接" class="headerlink" title="替换rosdep相关链接"></a>替换rosdep相关链接</h3><blockquote>
+<p>因为某些链接,在国内被屏蔽了,所以不能初始化成功. 下面需要手动配置链接.</p>
+</blockquote>
+<p>手动克隆文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/ros/noetic/			#一定要切换到这个目录</span><br><span class="line">git clone https://github.com/ros/rosdistro.git			#克隆ros官方文件</span><br></pre></td></tr></table></figure>
+
+
+
+<p>需要修改的文件有:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/opt/ros/noetic/rosdistro/rosdep/sources.list.d/20-default.list				#跟下面的不一样</span><br><span class="line"></span><br><span class="line">/usr/lib/python3/dist-packages/rosdep2/gbpdistro_support.py</span><br><span class="line"></span><br><span class="line">/usr/lib/python3/dist-packages/rosdep2/rep3.py</span><br><span class="line"></span><br><span class="line">/usr/lib/python3/dist-packages/rosdistro/__init__.py</span><br><span class="line"></span><br><span class="line">/etc/ros/rosdep/sources.list.d/20-default.list	#别以为是一样的</span><br></pre></td></tr></table></figure>
+
+<p>修改详情请看:<a href="!https://zhuanlan.zhihu.com/p/515361781">Ubuntu20.04.4安装ROS Noetic详细教程</a></p>
+<h3 id="安装遇到的问题"><a href="#安装遇到的问题" class="headerlink" title="安装遇到的问题"></a>安装遇到的问题</h3><ol>
+<li>rosdep初始化失败问题：国内屏蔽了下载链接</li>
+<li>运行小乌龟键盘控制不了：鼠标要选中控制节点的那个窗口，而不是选中小乌龟的窗口</li>
+</ol>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><strong>ROS-wiki</strong> <a target="_blank" rel="noopener" href="http://wiki.ros.org/noetic/Installation/Ubuntu">noetic&#x2F;Installation&#x2F;Ubuntu - ROS Wiki</a></p>
+<p><strong>zhihu</strong> <a href="!https://zhuanlan.zhihu.com/p/515361781">Ubuntu20.04.4安装ROS Noetic详细教程</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/02/20/SD%E6%A8%A1%E5%9D%97%E4%BB%A5%E5%8F%8AFATFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SD模块以及FATFS文件系统</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2023 YWM
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
