@@ -17,7 +17,7 @@
 <meta property="og:description" content="经典写代码半小时，改bug两小时">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-09T15:21:26.000Z">
-<meta property="article:modified_time" content="2023-01-10T02:33:39.136Z">
+<meta property="article:modified_time" content="2023-02-24T16:04:31.830Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="单片机">
 <meta property="article:tag" content="HAL">
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HAL/" style="font-size: 16.67px;">HAL</a> <a href="/tags/STM32/" style="font-size: 16.67px;">STM32</a> <a href="/tags/first/" style="font-size: 10px;">first</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 13.33px;">模块</a>
+						<a href="/tags/HAL/" style="font-size: 15px;">HAL</a> <a href="/tags/STM32/" style="font-size: 15px;">STM32</a> <a href="/tags/first/" style="font-size: 10px;">first</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 15px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
 					</div>
 				</section>
 				
@@ -239,8 +239,11 @@
 <h2 id="sizeof的计算"><a href="#sizeof的计算" class="headerlink" title="sizeof的计算"></a>sizeof的计算</h2><blockquote>
 <p>sizeof计算的是定义到的数组长度,也就是定义了多少,计算出来就是多少  .</p>
 <p>还有一个计算是实际的长度,忘记是什么函数了</p>
+<ul>
+<li>如果里面传的是指针的话，这就是另一种情况了</li>
+</ul>
 </blockquote>
-<h2 id="STM32cube配置出现中文乱码"><a href="#STM32cube配置出现中文乱码" class="headerlink" title="STM32cube配置出现中文乱码"></a>STM32cube配置出现中文乱码</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p>
+<h2 id="STM32cube配置出现中文乱码（错误的）"><a href="#STM32cube配置出现中文乱码（错误的）" class="headerlink" title="STM32cube配置出现中文乱码（错误的）"></a>STM32cube配置出现中文乱码（错误的）</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p>
 <blockquote>
 <ul>
 <li>变量名称：JAVA_TOOL_OPTIONS</li>
@@ -255,6 +258,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2023/01/31/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          电机驱动
+        
+      </div>
+    </a>
   
   
     <a href="/2023/01/07/HAL%E4%B9%8BUART/" id="article-nav-older" class="article-nav-link-wrap">

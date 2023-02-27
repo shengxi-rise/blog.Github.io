@@ -4,11 +4,73 @@
   
     
     <entry>
+      <title>SD模块以及FATFS文件系统</title>
+      <link href="/2023/02/20/SD%E6%A8%A1%E5%9D%97%E4%BB%A5%E5%8F%8AFATFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2023/02/20/SD%E6%A8%A1%E5%9D%97%E4%BB%A5%E5%8F%8AFATFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><blockquote><p>CMD0 使SD卡进入空闲模式</p><p>​正确情况：返回1，但是返回了0</p><p>CMD8 查看SD卡版本，1 为2.0</p><p>CMD55 </p><p>CMD41</p><p>CMD58</p></blockquote><ul><li><p>将初始化函数放进disk文件中，挂载出来是13，</p></li><li><p>外面初始化，里面初始化，挂在出来是13</p></li><li><p>外面初始化，里面不初始化，挂出来是3</p></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>八路巡线模块</title>
+      <link href="/2023/02/04/%E5%85%AB%E8%B7%AF%E5%B7%A1%E7%BA%BF%E6%A8%A1%E5%9D%97/"/>
+      <url>/2023/02/04/%E5%85%AB%E8%B7%AF%E5%B7%A1%E7%BA%BF%E6%A8%A1%E5%9D%97/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VS1053</title>
+      <link href="/2023/02/04/VS1053/"/>
+      <url>/2023/02/04/VS1053/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电机驱动</title>
+      <link href="/2023/01/31/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8/"/>
+      <url>/2023/01/31/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8/</url>
+      
+        <content type="html"><![CDATA[<p>电机驱动原理、TB6612接线、PID</p><span id="more"></span><h2 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h2><p>电机的正转比反转转速更快</p><p>正转满速：4900&#x2F;0.5s</p><p>反转满速：-5200&#x2F;0.5s</p><h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ul><li><p>创建了野指针，导致程序无法正常运行</p></li><li><p>使用scanf</p><ul><li>用了scanf，不需要再使用中断接收，中断回调这些函数了，记得子啊cube开启串口中断就行了，直接调用scanf就行了</li><li>还有这里的scanf和C里面的不一样，在格式输入里没有字符</li><li>即使是写成scanf(“kp&#x3D;%d”),scanf(“%d,%d”)，这种形式都不行</li><li>不过scanf(“%d%d%d”)，输入的时候可以写1，1，1 。中间可以加逗号</li></ul></li><li></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 模块 </tag>
+            
+            <tag> 单片机 </tag>
+            
+            <tag> 电机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>蓝牙小车之改bug</title>
       <link href="/2023/01/09/%E8%93%9D%E7%89%99%E5%B0%8F%E8%BD%A6%E4%B9%8B%E6%94%B9bug/"/>
       <url>/2023/01/09/%E8%93%9D%E7%89%99%E5%B0%8F%E8%BD%A6%E4%B9%8B%E6%94%B9bug/</url>
       
-        <content type="html"><![CDATA[<p>经典写代码半小时，改bug两小时</p><span id="more"></span><h2 id="串口接收中断"><a href="#串口接收中断" class="headerlink" title="串口接收中断"></a>串口接收中断</h2><blockquote><p>在cube配置UART的时候,忘记在中断接收那里✔了…</p></blockquote><h2 id="串口接收数据过程"><a href="#串口接收数据过程" class="headerlink" title="串口接收数据过程"></a>串口接收数据过程</h2><blockquote><p>发送数据时,是整体打包发送.(在中断回调函数中)在接收的时候,是一位一位读取的,在检测到后面两个截止位的时候,就会停止接收,进入下一个任务.</p><p>如果在检测到截止位就立即清空数据包, 那么在外面的大循环中就无法判断到接收到的数据包, 应该在执行完判断任务后再清空.</p></blockquote><h2 id="串口接收到的数据包"><a href="#串口接收到的数据包" class="headerlink" title="串口接收到的数据包"></a>串口接收到的数据包</h2><blockquote><p>通过普通的usb转串口模块,接收到的数据包有两个截止位(0X0D,0X0A)</p><p>但是用蓝牙通信发送的,只是软件上配置的数据,没有加截止位</p></blockquote><h2 id="printf的重定向"><a href="#printf的重定向" class="headerlink" title="printf的重定向"></a>printf的重定向</h2><p>在usart.c源文件中(针对于 cube),添加下面的代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart1;</span><br><span class="line"><span class="comment">//只重定向到了UART1</span></span><br><span class="line"><span class="comment">//重定向printf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fputc</span><span class="params">(<span class="type">int</span> ch,FILE* f)</span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1,(<span class="type">uint8_t</span>* )&amp;ch,<span class="number">1</span>,<span class="number">1000</span>);<span class="comment">//注意这里的int类型的ch,要强制转换一下类型</span></span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重定向scanf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fgetc</span><span class="params">(FILE* F)</span>&#123;</span><br><span class="line">  <span class="type">uint8_t</span> ch_r = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1,&amp;ch_r,<span class="number">1</span>,<span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch_r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>重定向原理: printf默认输出设备是显示器终端,如果要显示到串口或者lcd之类上,就要重定向.</p><p><strong>注意</strong> : 还要在keil上勾选use microlib</p></blockquote><h2 id="sizeof的计算"><a href="#sizeof的计算" class="headerlink" title="sizeof的计算"></a>sizeof的计算</h2><blockquote><p>sizeof计算的是定义到的数组长度,也就是定义了多少,计算出来就是多少  .</p><p>还有一个计算是实际的长度,忘记是什么函数了</p></blockquote><h2 id="STM32cube配置出现中文乱码"><a href="#STM32cube配置出现中文乱码" class="headerlink" title="STM32cube配置出现中文乱码"></a>STM32cube配置出现中文乱码</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p><blockquote><ul><li>变量名称：JAVA_TOOL_OPTIONS</li><li>变量值：-Dfile.encoding &#x3D; UTF-8</li></ul></blockquote>]]></content>
+        <content type="html"><![CDATA[<p>经典写代码半小时，改bug两小时</p><span id="more"></span><h2 id="串口接收中断"><a href="#串口接收中断" class="headerlink" title="串口接收中断"></a>串口接收中断</h2><blockquote><p>在cube配置UART的时候,忘记在中断接收那里✔了…</p></blockquote><h2 id="串口接收数据过程"><a href="#串口接收数据过程" class="headerlink" title="串口接收数据过程"></a>串口接收数据过程</h2><blockquote><p>发送数据时,是整体打包发送.(在中断回调函数中)在接收的时候,是一位一位读取的,在检测到后面两个截止位的时候,就会停止接收,进入下一个任务.</p><p>如果在检测到截止位就立即清空数据包, 那么在外面的大循环中就无法判断到接收到的数据包, 应该在执行完判断任务后再清空.</p></blockquote><h2 id="串口接收到的数据包"><a href="#串口接收到的数据包" class="headerlink" title="串口接收到的数据包"></a>串口接收到的数据包</h2><blockquote><p>通过普通的usb转串口模块,接收到的数据包有两个截止位(0X0D,0X0A)</p><p>但是用蓝牙通信发送的,只是软件上配置的数据,没有加截止位</p></blockquote><h2 id="printf的重定向"><a href="#printf的重定向" class="headerlink" title="printf的重定向"></a>printf的重定向</h2><p>在usart.c源文件中(针对于 cube),添加下面的代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart1;</span><br><span class="line"><span class="comment">//只重定向到了UART1</span></span><br><span class="line"><span class="comment">//重定向printf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fputc</span><span class="params">(<span class="type">int</span> ch,FILE* f)</span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1,(<span class="type">uint8_t</span>* )&amp;ch,<span class="number">1</span>,<span class="number">1000</span>);<span class="comment">//注意这里的int类型的ch,要强制转换一下类型</span></span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重定向scanf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fgetc</span><span class="params">(FILE* F)</span>&#123;</span><br><span class="line">  <span class="type">uint8_t</span> ch_r = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1,&amp;ch_r,<span class="number">1</span>,<span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch_r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>重定向原理: printf默认输出设备是显示器终端,如果要显示到串口或者lcd之类上,就要重定向.</p><p><strong>注意</strong> : 还要在keil上勾选use microlib</p></blockquote><h2 id="sizeof的计算"><a href="#sizeof的计算" class="headerlink" title="sizeof的计算"></a>sizeof的计算</h2><blockquote><p>sizeof计算的是定义到的数组长度,也就是定义了多少,计算出来就是多少  .</p><p>还有一个计算是实际的长度,忘记是什么函数了</p><ul><li>如果里面传的是指针的话，这就是另一种情况了</li></ul></blockquote><h2 id="STM32cube配置出现中文乱码（错误的）"><a href="#STM32cube配置出现中文乱码（错误的）" class="headerlink" title="STM32cube配置出现中文乱码（错误的）"></a>STM32cube配置出现中文乱码（错误的）</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p><blockquote><ul><li>变量名称：JAVA_TOOL_OPTIONS</li><li>变量值：-Dfile.encoding &#x3D; UTF-8</li></ul></blockquote>]]></content>
       
       
       
@@ -119,7 +181,7 @@
       <link href="/2022/12/07/hello-hexo/"/>
       <url>/2022/12/07/hello-hexo/</url>
       
-        <content type="html"><![CDATA[<p><strong>HELLO LLS</strong><br>你好！世界，你好！YWM，AND I LOVE YOU LSQ</p>]]></content>
+        <content type="html"><![CDATA[<p><strong>HELLO LLS</strong><br>你好！世界，你好！YWM</p>]]></content>
       
       
       
