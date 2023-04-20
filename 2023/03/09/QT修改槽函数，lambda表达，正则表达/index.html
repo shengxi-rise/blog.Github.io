@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>QT修改槽函数，lambda表达，正则表达 | YWM&#39;S BLOG</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="QT自定义信号，修改槽函数，lambda表达式，正则表达">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT修改槽函数，lambda表达，正则表达">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/03/09/QT%E4%BF%AE%E6%94%B9%E6%A7%BD%E5%87%BD%E6%95%B0%EF%BC%8Clambda%E8%A1%A8%E8%BE%BE%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE/index.html">
+<meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="QT自定义信号，修改槽函数，lambda表达式，正则表达">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-09T02:57:53.000Z">
+<meta property="article:modified_time" content="2023-03-09T05:28:14.058Z">
+<meta property="article:author" content="YWM">
+<meta property="article:tag" content="QT">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.328888.xyz/2022/12/08/fO2za.jpeg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 15px;">HAL</a> <a href="/tags/Install/" style="font-size: 10px;">Install</a> <a href="/tags/QT/" style="font-size: 12.5px;">QT</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 17.5px;">STM32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 17.5px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xsaistudio.cn">studio</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-QT修改槽函数，lambda表达，正则表达" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/03/09/QT%E4%BF%AE%E6%94%B9%E6%A7%BD%E5%87%BD%E6%95%B0%EF%BC%8Clambda%E8%A1%A8%E8%BE%BE%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE/" class="article-date">
+  	<time datetime="2023-03-09T02:57:53.000Z" itemprop="datePublished">2023-03-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      QT修改槽函数，lambda表达，正则表达
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/" rel="tag">QT</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>QT自定义信号，修改槽函数，lambda表达式，正则表达</p>
+<span id="more"></span>
+
+<h2 id="修改槽函数"><a href="#修改槽函数" class="headerlink" title="修改槽函数"></a>修改槽函数</h2><ol>
+<li>在private slots 里面添加自定义函数声明，其它的按照官方操作就行</li>
+<li>在widget.cpp 里面写connect函数</li>
+</ol>
+<p>函数原型：</p>
+<p>static QMetaObject::Connection connect(const QObject *sender, const char *signal, const QObject *receiver, const char *member, Qt::ConnectionType &#x3D; Qt::AutoConnection);</p>
+<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QObject::<span class="built_in">connect</span>(信号的发送者，发送的信号，槽函数所在的类，自定义接收的槽函数)</span><br><span class="line">eg：</span><br><span class="line">    QObject::<span class="built_in">connect</span>(ui-&gt;commit,&amp;QPushButton::clicked,<span class="keyword">this</span>,&amp;Widget::botton);  <span class="comment">//QT5规范</span></span><br><span class="line">	QObject::<span class="built_in">connect</span>(ui-&gt;commit,<span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>(),<span class="keyword">this</span>,<span class="built_in">SLOT</span>(<span class="built_in">botton</span>()));      <span class="comment">//QT4规范</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="自定义信号"><a href="#自定义信号" class="headerlink" title="自定义信号"></a>自定义信号</h3><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/9429.html">Qt自定义信号和槽函数</a></p>
+<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><p>通过lambada表达式，实现匿名函数的方法。在connect 使用匿名函数不能用QT4规范。</p>
+<p>lambda捕获列表：</p>
+<ul>
+<li><p>[var]表示值传递方式捕捉变量var；</p>
+</li>
+<li><p>[&#x3D;]表示值传递方式捕捉所有父作用域的变量（包括this）；</p>
+</li>
+<li><p>[&amp;var]表示引用传递捕捉变量var；</p>
+</li>
+<li><p>[&amp;]表示引用传递方式捕捉所有父作用域的变量（包括this）；</p>
+<blockquote>
+<p>在QT中, 虽然是传地址, 但是修改了原来变量的值, 但是新的变量值不变, 实现了一部分传值, 一部分传地址</p>
+</blockquote>
+</li>
+<li><p>[this]表示值传递方式捕捉当前的this指针。<br>上面提到了一个父作用域，也就是包含Lambda函数的语句块，说通俗点就是包含Lambda的“{}”代码块。上面的捕捉列表还可以进行组合，例如：</p>
+<ul>
+<li><p>[&#x3D;,&amp;a,&amp;b]表示以引用传递的方式捕捉变量a和b，以值传递方式捕捉其它所有变量;</p>
+</li>
+<li><p>[&amp;,a,this]表示以值传递的方式捕捉变量a和this，引用传递方式捕捉其它所有变量。<br>不过值得注意的是，捕捉列表不允许变量重复传递。下面一些例子就是典型的重复，会导致编译时期的错误。例如：</p>
+</li>
+<li><p>[&#x3D;,a]这里已经以值传递方式捕捉了所有变量，但是重复捕捉a了，会报错的;</p>
+</li>
+<li><p>[&amp;,&amp;this]这里&amp;已经以引用传递方式捕捉了所有变量，再捕捉this也是一种重复。</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QObject::<span class="built_in">connect</span>(信号的发送者，发送的信号，槽函数所在的类，[捕获列表](信号里有的变量))</span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;commit,&amp;QPushButton::clicked,<span class="keyword">this</span>,[=]&#123;</span><br><span class="line">	<span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;This is lambda&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h3><blockquote>
+<ol>
+<li>使用lambda的时候, 用cennect三个参数的重载, 会被clazy警告, 要用四个参数的重载</li>
+<li>写了lambda表达式之后，slots那里已经不需要写任何东西</li>
+</ol>
+</blockquote>
+<h2 id="QT的正则表达"><a href="#QT的正则表达" class="headerlink" title="QT的正则表达"></a>QT的正则表达</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QRegularExpression&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">QRegularExpression <span class="title">regexp_int</span><span class="params">(<span class="string">&quot;^[0-9]+$&quot;</span>)</span></span>;   <span class="comment">// int</span></span><br><span class="line"><span class="function">QRegularExpression <span class="title">regexp_float</span><span class="params">(<span class="string">&quot;^[0-9]+\\.[0-9]+$&quot;</span>)</span></span>;   <span class="comment">// float	匹配浮点数,要用两个\\转义.</span></span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> valid = regexp_int.<span class="built_in">isValid</span>();	<span class="comment">// 判断正则表达是否合法</span></span><br><span class="line"></span><br><span class="line">QString pattern = regexp.<span class="built_in">pattern</span>();	<span class="comment">// 返回正则表达式</span></span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; pattern;</span><br><span class="line"></span><br><span class="line">QRegularExpressionMatch number = regexp_int.<span class="built_in">match</span>(<span class="string">&quot;abdc 12&quot;</span>);	<span class="comment">// 匹配出符合的结果		</span></span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> hasMatch = number.<span class="built_in">hasMatch</span>(); 		<span class="comment">// 是否匹配成功</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; hasMatch;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (number.<span class="built_in">hasMatch</span>())&#123;</span><br><span class="line">    QString numbers = number.<span class="built_in">captured</span>(<span class="number">0</span>);		<span class="comment">// 获取正则匹配结果 </span></span><br><span class="line">    <span class="comment">// 还有 captured(1) captured(2)</span></span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; numbers;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;hasnt enough match&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后面需要用到再查手册</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/13/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85QT%E7%89%88%E6%9C%AC%E5%BC%83%E5%AD%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Clion与QT的那些事
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/06/git%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git高阶用法</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2023 YWM
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

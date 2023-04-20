@@ -9,16 +9,19 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CMD0 使SD卡进入空闲模式 ​	正确情况：返回1，但是返回了0 CMD8 查看SD卡版本，1 为2.0 CMD55  CMD41 CMD58   将初始化函数放进disk文件中，挂载出来是13，  外面初始化，里面初始化，挂在出来是13  外面初始化，里面不初始化，挂出来是3">
+  <meta name="description" content="23科创杯模块, 使用SD卡读写, SPI通讯协议">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SD模块以及FATFS文件系统">
 <meta property="og:url" content="https://blog.xsaistudio.cn/2023/02/20/SD%E6%A8%A1%E5%9D%97%E4%BB%A5%E5%8F%8AFATFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="CMD0 使SD卡进入空闲模式 ​	正确情况：返回1，但是返回了0 CMD8 查看SD卡版本，1 为2.0 CMD55  CMD41 CMD58   将初始化函数放进disk文件中，挂载出来是13，  外面初始化，里面初始化，挂在出来是13  外面初始化，里面不初始化，挂出来是3">
+<meta property="og:description" content="23科创杯模块, 使用SD卡读写, SPI通讯协议">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-20T13:33:49.000Z">
-<meta property="article:modified_time" content="2023-02-22T01:33:17.659Z">
+<meta property="article:modified_time" content="2023-03-14T06:21:01.617Z">
 <meta property="article:author" content="YWM">
+<meta property="article:tag" content="单片机">
+<meta property="article:tag" content="STM32">
+<meta property="article:tag" content="模块">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
@@ -117,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 15px;">HAL</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 15px;">STM32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/first/" style="font-size: 10px;">first</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 15px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
+						<a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 15px;">HAL</a> <a href="/tags/Install/" style="font-size: 10px;">Install</a> <a href="/tags/QT/" style="font-size: 12.5px;">QT</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 17.5px;">STM32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 17.5px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
 					</div>
 				</section>
 				
@@ -199,6 +202,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E5%9D%97/" rel="tag">模块</a></li></ul>
+	</div>
+
         
 
         
@@ -208,9 +215,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
+        <p>23科创杯模块, 使用SD卡读写, SPI通讯协议</p>
+<span id="more"></span>
 
-<blockquote>
+<hr>
+<h2 id="某些资料"><a href="#某些资料" class="headerlink" title="某些资料"></a>某些资料</h2><blockquote>
 <p>CMD0 使SD卡进入空闲模式</p>
 <p>​	正确情况：返回1，但是返回了0</p>
 <p>CMD8 查看SD卡版本，1 为2.0</p>
@@ -245,8 +254,8 @@
     </a>
   
   
-    <a href="/2023/02/04/%E5%85%AB%E8%B7%AF%E5%B7%A1%E7%BA%BF%E6%A8%A1%E5%9D%97/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">八路巡线模块</div>
+    <a href="/2023/01/31/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">电机驱动</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   

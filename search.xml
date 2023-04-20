@@ -4,6 +4,67 @@
   
     
     <entry>
+      <title>Clion与QT的那些事</title>
+      <link href="/2023/03/13/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85QT%E7%89%88%E6%9C%AC%E5%BC%83%E5%AD%90/"/>
+      <url>/2023/03/13/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85QT%E7%89%88%E6%9C%AC%E5%BC%83%E5%AD%90/</url>
+      
+        <content type="html"><![CDATA[<p>因为QT6很多库已经放弃了，所以开发要用到旧版，找了很久才找到。</p><span id="more"></span><h2 id="QT的在线安装程序，最低版本已经去到了v5-15，虽然区别不大，但还是统一开发环境比较好。"><a href="#QT的在线安装程序，最低版本已经去到了v5-15，虽然区别不大，但还是统一开发环境比较好。" class="headerlink" title="QT的在线安装程序，最低版本已经去到了v5.15，虽然区别不大，但还是统一开发环境比较好。"></a>QT的在线安装程序，最低版本已经去到了v5.15，虽然区别不大，但还是统一开发环境比较好。</h2><blockquote><p>QT老版本下载: <a href="https://download.qt.io/archive/qt/">qtdownload</a></p><p>QT论坛: <a href="https://forum.qt.io/">Qt Forum</a></p></blockquote><h2 id="QT在线安装器加载源的问题"><a href="#QT在线安装器加载源的问题" class="headerlink" title="QT在线安装器加载源的问题"></a>QT在线安装器加载源的问题</h2><p>​问题：1. 添加的源用不了2. 官方的源用不了</p><blockquote><p>使用终端打开安装器, 在后面加上  –mirror <a href="https://mirrors.aliyun.com/qt">https://mirrors.aliyun.com/qt</a></p><p>如 .\qt_online.exe –mirror <a href="https://mirrors.aliyun.com/qt">https://mirrors.aliyun.com/qt</a></p></blockquote><h2 id="用Clion开发QT"><a href="#用Clion开发QT" class="headerlink" title="用Clion开发QT"></a>用Clion开发QT</h2><ol><li><p>正常下载好QT, 创建好项目并且可以运行</p><blockquote><p>QT安装可以用在线工具, 也可以下载离线安装包</p><p>安装的时候, 一定要选编译器(上下都要选)…</p></blockquote></li><li><p>Clion中配置好QT的工具链</p></li></ol><blockquote><p>在Tools chain中添加QT的debug, 把qt&#x2F;Tools&#x2F;5.12.12&#x2F;Mingw 添加上去</p></blockquote><p><img src="https://s1.ax1x.com/2023/03/14/ppl2V3V.png"></p><h2 id="关于windows环境变量"><a href="#关于windows环境变量" class="headerlink" title="关于windows环境变量"></a>关于windows环境变量</h2><p>添加完环境变量，一定要重启！！！（除非你用在cmd用命令添加的）</p><h2 id="Clion编译QT程序的问题"><a href="#Clion编译QT程序的问题" class="headerlink" title="Clion编译QT程序的问题"></a>Clion编译QT程序的问题</h2><ol><li>找不到qt-config.cmake</li></ol><blockquote><p>在CMake.list程序里面，添加上set(CMAKE_PREFIX_PATH “E:\\QT\\5.12.11\\mingw73_64\\lib\\cmake\\Qt5”)</p><p>此处改为自己的路径</p></blockquote><ol start="2"><li>找不到对应的库，比如说这次(qserialport)</li></ol><blockquote><p>先去找官网或者别的地方找，看看每个版本之间的差异，可能版本的迭代把某些模块删掉了。</p></blockquote><ol start="3"><li><p>Clion编译通过了，但是运行报错-1073741515 (0xC0000135)</p><blockquote><p>运行失败，这个报错是没有链接到动态链接库dll的原因，在系统环境变量中加上qt的编译路径，如：</p><p><img src="https://s1.ax1x.com/2023/03/14/pplsbRO.png"></p></blockquote></li></ol><p>最后一定要重启!!!</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>装软件一定要考虑团队的版本问题, 还有安装时所带的资料库</li><li>windows环境变量设置完之后, 一定要重启电脑</li><li>网上搜教程的同时, 也要去官方论坛看看, bing国际版</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> QT </tag>
+            
+            <tag> Install </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>QT修改槽函数，lambda表达，正则表达</title>
+      <link href="/2023/03/09/QT%E4%BF%AE%E6%94%B9%E6%A7%BD%E5%87%BD%E6%95%B0%EF%BC%8Clambda%E8%A1%A8%E8%BE%BE%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE/"/>
+      <url>/2023/03/09/QT%E4%BF%AE%E6%94%B9%E6%A7%BD%E5%87%BD%E6%95%B0%EF%BC%8Clambda%E8%A1%A8%E8%BE%BE%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE/</url>
+      
+        <content type="html"><![CDATA[<p>QT自定义信号，修改槽函数，lambda表达式，正则表达</p><span id="more"></span><h2 id="修改槽函数"><a href="#修改槽函数" class="headerlink" title="修改槽函数"></a>修改槽函数</h2><ol><li>在private slots 里面添加自定义函数声明，其它的按照官方操作就行</li><li>在widget.cpp 里面写connect函数</li></ol><p>函数原型：</p><p>static QMetaObject::Connection connect(const QObject *sender, const char *signal, const QObject *receiver, const char *member, Qt::ConnectionType &#x3D; Qt::AutoConnection);</p><blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QObject::<span class="built_in">connect</span>(信号的发送者，发送的信号，槽函数所在的类，自定义接收的槽函数)</span><br><span class="line">eg：</span><br><span class="line">    QObject::<span class="built_in">connect</span>(ui-&gt;commit,&amp;QPushButton::clicked,<span class="keyword">this</span>,&amp;Widget::botton);  <span class="comment">//QT5规范</span></span><br><span class="line">QObject::<span class="built_in">connect</span>(ui-&gt;commit,<span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>(),<span class="keyword">this</span>,<span class="built_in">SLOT</span>(<span class="built_in">botton</span>()));      <span class="comment">//QT4规范</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></blockquote><h3 id="自定义信号"><a href="#自定义信号" class="headerlink" title="自定义信号"></a>自定义信号</h3><p><a href="http://c.biancheng.net/view/9429.html">Qt自定义信号和槽函数</a></p><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><p>通过lambada表达式，实现匿名函数的方法。在connect 使用匿名函数不能用QT4规范。</p><p>lambda捕获列表：</p><ul><li><p>[var]表示值传递方式捕捉变量var；</p></li><li><p>[&#x3D;]表示值传递方式捕捉所有父作用域的变量（包括this）；</p></li><li><p>[&amp;var]表示引用传递捕捉变量var；</p></li><li><p>[&amp;]表示引用传递方式捕捉所有父作用域的变量（包括this）；</p><blockquote><p>在QT中, 虽然是传地址, 但是修改了原来变量的值, 但是新的变量值不变, 实现了一部分传值, 一部分传地址</p></blockquote></li><li><p>[this]表示值传递方式捕捉当前的this指针。<br>上面提到了一个父作用域，也就是包含Lambda函数的语句块，说通俗点就是包含Lambda的“{}”代码块。上面的捕捉列表还可以进行组合，例如：</p><ul><li><p>[&#x3D;,&amp;a,&amp;b]表示以引用传递的方式捕捉变量a和b，以值传递方式捕捉其它所有变量;</p></li><li><p>[&amp;,a,this]表示以值传递的方式捕捉变量a和this，引用传递方式捕捉其它所有变量。<br>不过值得注意的是，捕捉列表不允许变量重复传递。下面一些例子就是典型的重复，会导致编译时期的错误。例如：</p></li><li><p>[&#x3D;,a]这里已经以值传递方式捕捉了所有变量，但是重复捕捉a了，会报错的;</p></li><li><p>[&amp;,&amp;this]这里&amp;已经以引用传递方式捕捉了所有变量，再捕捉this也是一种重复。</p></li></ul></li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QObject::<span class="built_in">connect</span>(信号的发送者，发送的信号，槽函数所在的类，[捕获列表](信号里有的变量))</span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;commit,&amp;QPushButton::clicked,<span class="keyword">this</span>,[=]&#123;</span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;This is lambda&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h3><blockquote><ol><li>使用lambda的时候, 用cennect三个参数的重载, 会被clazy警告, 要用四个参数的重载</li><li>写了lambda表达式之后，slots那里已经不需要写任何东西</li></ol></blockquote><h2 id="QT的正则表达"><a href="#QT的正则表达" class="headerlink" title="QT的正则表达"></a>QT的正则表达</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QRegularExpression&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">QRegularExpression <span class="title">regexp_int</span><span class="params">(<span class="string">&quot;^[0-9]+$&quot;</span>)</span></span>;   <span class="comment">// int</span></span><br><span class="line"><span class="function">QRegularExpression <span class="title">regexp_float</span><span class="params">(<span class="string">&quot;^[0-9]+\\.[0-9]+$&quot;</span>)</span></span>;   <span class="comment">// float匹配浮点数,要用两个\\转义.</span></span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> valid = regexp_int.<span class="built_in">isValid</span>();<span class="comment">// 判断正则表达是否合法</span></span><br><span class="line"></span><br><span class="line">QString pattern = regexp.<span class="built_in">pattern</span>();<span class="comment">// 返回正则表达式</span></span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; pattern;</span><br><span class="line"></span><br><span class="line">QRegularExpressionMatch number = regexp_int.<span class="built_in">match</span>(<span class="string">&quot;abdc 12&quot;</span>);<span class="comment">// 匹配出符合的结果</span></span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> hasMatch = number.<span class="built_in">hasMatch</span>(); <span class="comment">// 是否匹配成功</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; hasMatch;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (number.<span class="built_in">hasMatch</span>())&#123;</span><br><span class="line">    QString numbers = number.<span class="built_in">captured</span>(<span class="number">0</span>);<span class="comment">// 获取正则匹配结果 </span></span><br><span class="line">    <span class="comment">// 还有 captured(1) captured(2)</span></span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; numbers;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;hasnt enough match&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>后面需要用到再查手册</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> QT </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git高阶用法</title>
+      <link href="/2023/03/06/git%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
+      <url>/2023/03/06/git%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<p>git 的基本操作，参考 <a href="http://t.csdn.cn/1QW3G">git技能树</a></p><span id="more"></span><h2 id="基操"><a href="#基操" class="headerlink" title="基操"></a>基操</h2><blockquote><p>以下文件均用变量 FILE 表示</p></blockquote><h3 id="比较变动"><a href="#比较变动" class="headerlink" title="比较变动"></a>比较变动</h3><blockquote><p>查看相对于上一次暂存修改了什么</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff FILE</span><br></pre></td></tr></table></figure><h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><blockquote><p>输出信息太多, 在后面加上 –pretty&#x3D;online</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=online</span><br></pre></td></tr></table></figure><blockquote><p>查看所有的commit记录</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure><h3 id="查看时间线"><a href="#查看时间线" class="headerlink" title="查看时间线"></a>查看时间线</h3><blockquote><p>查看历史提交的时间线</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lg</span><br></pre></td></tr></table></figure><h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><blockquote><p>在git 中, 当前版本表示HEAD, 上一个版本为HEAD^, 上上个版本为HEAD^^, 依此类推, 100个写成HEAD~100</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure><h3 id="git重置"><a href="#git重置" class="headerlink" title="git重置"></a>git重置</h3><blockquote><p>相当于撤销命令</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reflog#查看用过的命令</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">找到想要撤回到的命令前面的<span class="built_in">id</span></span></span><br><span class="line">git reflog --hard (e55063a)#这里填自己命令id</span><br></pre></td></tr></table></figure><h3 id="git-log-和-git-reflog"><a href="#git-log-和-git-reflog" class="headerlink" title="git log 和 git reflog"></a>git log 和 git reflog</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git log # 查看commit过的信息</span><br><span class="line">git reflog# 查看用过的命令</span><br><span class="line">git reset --hard commit_id# 回到该版本</span><br><span class="line">git reset --hard cmd_id# 回到用这条命令前的状态</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">本地reset之后，要push上去，远程仓库才能一起回退</span></span><br></pre></td></tr></table></figure><h3 id="取消暂存文件"><a href="#取消暂存文件" class="headerlink" title="取消暂存文件"></a>取消暂存文件</h3><blockquote><p>移除部分在暂存区的文件, 有些命令可以在 git status 中看到</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD FILE</span><br></pre></td></tr></table></figure><h3 id="恢复文件"><a href="#恢复文件" class="headerlink" title="恢复文件"></a>恢复文件</h3><blockquote><p>将文件恢复为上一次提交的样子</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- FILE</span><br></pre></td></tr></table></figure><h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><blockquote><p>两种情况: 误删, 想要恢复。彻底删除</p></blockquote><p>误删( 前提是版本库里面存在 )</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- FILE # 跟上面同理</span><br></pre></td></tr></table></figure><p>彻底删除</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先在本地删除, 然后才删除版本库里面的</span></span><br><span class="line">git rm FILE</span><br></pre></td></tr></table></figure><p>删除远程仓库文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将远程仓库里面的项目文件拉下来，然后可通过<span class="built_in">dir</span>命令行查看有哪些文件夹</span></span><br><span class="line">git pull origin master</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除文件(如“动画demo.md‘)或者文件夹</span></span><br><span class="line">git rm --cached “文件”/git rm -r --cached &quot;文件夹’</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将删除操作提交到git仓库</span></span><br><span class="line">git commit -m “操作说明”</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将本次修改更新到github远程仓库</span></span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这个删除对本地是没影响的,只是针对git本地库和远程库</span></span><br></pre></td></tr></table></figure><h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><blockquote><p>以下表示: 分支默认用dev</p></blockquote><h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br><span class="line">git branch -a # 查看本地分支以及远程分支</span><br></pre></td></tr></table></figure><h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git checkout dev 已经过时了</span></span><br><span class="line">git switch dev</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建和切换结合起来</span></span><br><span class="line">git switch -c dev</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将远程分支更新到本地（好像不能成功）</span></span><br><span class="line">git remote update origin --prune</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="指定分支下载"><a href="#指定分支下载" class="headerlink" title="指定分支下载"></a>指定分支下载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b branch_name git@git...</span><br></pre></td></tr></table></figure><h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete branch_name# 删除远程</span><br><span class="line">git branch -d branch_name   # 删除本地</span><br></pre></td></tr></table></figure><h2 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h2><blockquote><ul><li><p>通常合并分支的时候, 会采用Fast forward 模式, 这种模式下, 删除分支后相关的信息也会删除</p></li><li><p>如果禁用了这种模式, merge的时候会生成新的commit信息, 在历史上就能查到分支信息</p></li></ul></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m &quot;merge with no-ff&quot; dev # 这里加上了-m, 因为要产生新的commit信息</span><br></pre></td></tr></table></figure><h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><blockquote><p>工作到一半, 工作区还有东西, 同时还要改bug的情况</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git stash# 把当前的工作区储存起来</span><br><span class="line">git stash list # 查看储存的工作区</span><br><span class="line">git stash apply (id) # 仅恢复工作区,当多个stash的时候,写id</span><br><span class="line">git stash drop# 删除储存的工作区</span><br><span class="line">git stash pop # 恢复的同时,删除储存的工作区</span><br></pre></td></tr></table></figure><ul><li>同一个bug, 在两个不同的分支, 改完bug, 可以复刻特定的提交到其它分支</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick (id) # id填commit bug时候的id</span><br></pre></td></tr></table></figure><h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><h3 id="加速访问"><a href="#加速访问" class="headerlink" title="加速访问"></a>加速访问</h3><ol><li>steam++</li><li>uu加速器</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu20.04安装ROS</title>
       <link href="/2023/02/27/Ubuntu20-04%E5%AE%89%E8%A3%85ROS/"/>
       <url>/2023/02/27/Ubuntu20-04%E5%AE%89%E8%A3%85ROS/</url>
@@ -31,35 +92,19 @@
       <link href="/2023/02/20/SD%E6%A8%A1%E5%9D%97%E4%BB%A5%E5%8F%8AFATFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
       <url>/2023/02/20/SD%E6%A8%A1%E5%9D%97%E4%BB%A5%E5%8F%8AFATFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</url>
       
-        <content type="html"><![CDATA[<span id="more"></span><blockquote><p>CMD0 使SD卡进入空闲模式</p><p>​正确情况：返回1，但是返回了0</p><p>CMD8 查看SD卡版本，1 为2.0</p><p>CMD55 </p><p>CMD41</p><p>CMD58</p></blockquote><ul><li><p>将初始化函数放进disk文件中，挂载出来是13，</p></li><li><p>外面初始化，里面初始化，挂在出来是13</p></li><li><p>外面初始化，里面不初始化，挂出来是3</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>23科创杯模块, 使用SD卡读写, SPI通讯协议</p><span id="more"></span><hr><h2 id="某些资料"><a href="#某些资料" class="headerlink" title="某些资料"></a>某些资料</h2><blockquote><p>CMD0 使SD卡进入空闲模式</p><p>​正确情况：返回1，但是返回了0</p><p>CMD8 查看SD卡版本，1 为2.0</p><p>CMD55 </p><p>CMD41</p><p>CMD58</p></blockquote><ul><li><p>将初始化函数放进disk文件中，挂载出来是13，</p></li><li><p>外面初始化，里面初始化，挂在出来是13</p></li><li><p>外面初始化，里面不初始化，挂出来是3</p></li></ul>]]></content>
       
       
       
-    </entry>
-    
-    
-    
-    <entry>
-      <title>八路巡线模块</title>
-      <link href="/2023/02/04/%E5%85%AB%E8%B7%AF%E5%B7%A1%E7%BA%BF%E6%A8%A1%E5%9D%97/"/>
-      <url>/2023/02/04/%E5%85%AB%E8%B7%AF%E5%B7%A1%E7%BA%BF%E6%A8%A1%E5%9D%97/</url>
-      
-        <content type="html"><![CDATA[<span id="more"></span>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>VS1053</title>
-      <link href="/2023/02/04/VS1053/"/>
-      <url>/2023/02/04/VS1053/</url>
-      
-        <content type="html"><![CDATA[<span id="more"></span>]]></content>
-      
-      
+        <tags>
+            
+            <tag> 单片机 </tag>
+            
+            <tag> STM32 </tag>
+            
+            <tag> 模块 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -76,9 +121,9 @@
       
         <tags>
             
-            <tag> 模块 </tag>
-            
             <tag> 单片机 </tag>
+            
+            <tag> 模块 </tag>
             
             <tag> 电机 </tag>
             
@@ -93,7 +138,7 @@
       <link href="/2023/01/09/%E8%93%9D%E7%89%99%E5%B0%8F%E8%BD%A6%E4%B9%8B%E6%94%B9bug/"/>
       <url>/2023/01/09/%E8%93%9D%E7%89%99%E5%B0%8F%E8%BD%A6%E4%B9%8B%E6%94%B9bug/</url>
       
-        <content type="html"><![CDATA[<p>经典写代码半小时，改bug两小时</p><span id="more"></span><h2 id="串口接收中断"><a href="#串口接收中断" class="headerlink" title="串口接收中断"></a>串口接收中断</h2><blockquote><p>在cube配置UART的时候,忘记在中断接收那里✔了…</p></blockquote><h2 id="串口接收数据过程"><a href="#串口接收数据过程" class="headerlink" title="串口接收数据过程"></a>串口接收数据过程</h2><blockquote><p>发送数据时,是整体打包发送.(在中断回调函数中)在接收的时候,是一位一位读取的,在检测到后面两个截止位的时候,就会停止接收,进入下一个任务.</p><p>如果在检测到截止位就立即清空数据包, 那么在外面的大循环中就无法判断到接收到的数据包, 应该在执行完判断任务后再清空.</p></blockquote><h2 id="串口接收到的数据包"><a href="#串口接收到的数据包" class="headerlink" title="串口接收到的数据包"></a>串口接收到的数据包</h2><blockquote><p>通过普通的usb转串口模块,接收到的数据包有两个截止位(0X0D,0X0A)</p><p>但是用蓝牙通信发送的,只是软件上配置的数据,没有加截止位</p></blockquote><h2 id="printf的重定向"><a href="#printf的重定向" class="headerlink" title="printf的重定向"></a>printf的重定向</h2><p>在usart.c源文件中(针对于 cube),添加下面的代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart1;</span><br><span class="line"><span class="comment">//只重定向到了UART1</span></span><br><span class="line"><span class="comment">//重定向printf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fputc</span><span class="params">(<span class="type">int</span> ch,FILE* f)</span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1,(<span class="type">uint8_t</span>* )&amp;ch,<span class="number">1</span>,<span class="number">1000</span>);<span class="comment">//注意这里的int类型的ch,要强制转换一下类型</span></span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重定向scanf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fgetc</span><span class="params">(FILE* F)</span>&#123;</span><br><span class="line">  <span class="type">uint8_t</span> ch_r = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1,&amp;ch_r,<span class="number">1</span>,<span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch_r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>重定向原理: printf默认输出设备是显示器终端,如果要显示到串口或者lcd之类上,就要重定向.</p><p><strong>注意</strong> : 还要在keil上勾选use microlib</p></blockquote><h2 id="sizeof的计算"><a href="#sizeof的计算" class="headerlink" title="sizeof的计算"></a>sizeof的计算</h2><blockquote><p>sizeof计算的是定义到的数组长度,也就是定义了多少,计算出来就是多少  .</p><p>还有一个计算是实际的长度,忘记是什么函数了</p><ul><li>如果里面传的是指针的话，这就是另一种情况了</li></ul></blockquote><h2 id="STM32cube配置出现中文乱码（错误的）"><a href="#STM32cube配置出现中文乱码（错误的）" class="headerlink" title="STM32cube配置出现中文乱码（错误的）"></a>STM32cube配置出现中文乱码（错误的）</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p><blockquote><ul><li>变量名称：JAVA_TOOL_OPTIONS</li><li>变量值：-Dfile.encoding &#x3D; UTF-8</li></ul></blockquote>]]></content>
+        <content type="html"><![CDATA[<p>经典写代码半小时，改bug两小时</p><span id="more"></span><h2 id="串口接收中断"><a href="#串口接收中断" class="headerlink" title="串口接收中断"></a>串口接收中断</h2><blockquote><p>在cube配置UART的时候,忘记在中断接收那里✔了…</p></blockquote><h2 id="串口接收数据过程"><a href="#串口接收数据过程" class="headerlink" title="串口接收数据过程"></a>串口接收数据过程</h2><blockquote><p>发送数据时,是整体打包发送.(在中断回调函数中)在接收的时候,是一位一位读取的,在检测到后面两个截止位的时候,就会停止接收,进入下一个任务.</p><p>如果在检测到截止位就立即清空数据包, 那么在外面的大循环中就无法判断到接收到的数据包, 应该在执行完判断任务后再清空.</p></blockquote><h2 id="串口接收到的数据包"><a href="#串口接收到的数据包" class="headerlink" title="串口接收到的数据包"></a>串口接收到的数据包</h2><blockquote><p>通过普通的usb转串口模块,接收到的数据包有两个截止位(0X0D,0X0A)</p><p>但是用蓝牙通信发送的,只是软件上配置的数据,没有加截止位</p></blockquote><h2 id="printf的重定向"><a href="#printf的重定向" class="headerlink" title="printf的重定向"></a>printf的重定向</h2><p>在usart.c源文件中(针对于 cube),添加下面的代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart1;</span><br><span class="line"><span class="comment">//只重定向到了UART1</span></span><br><span class="line"><span class="comment">//重定向printf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fputc</span><span class="params">(<span class="type">int</span> ch,FILE* f)</span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1,(<span class="type">uint8_t</span>* )&amp;ch,<span class="number">1</span>,<span class="number">1000</span>);<span class="comment">//注意这里的int类型的ch,要强制转换一下类型</span></span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重定向scanf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fgetc</span><span class="params">(FILE* F)</span>&#123;</span><br><span class="line">  <span class="type">uint8_t</span> ch_r = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1,&amp;ch_r,<span class="number">1</span>,<span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch_r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>重定向原理: printf默认输出设备是显示器终端,如果要显示到串口或者lcd之类上,就要重定向.</p><p><strong>注意</strong> : 还要在keil上勾选use microlib</p></blockquote><h2 id="sizeof的计算"><a href="#sizeof的计算" class="headerlink" title="sizeof的计算"></a>sizeof的计算</h2><blockquote><p>sizeof计算的是定义到的数组长度,也就是定义了多少,计算出来就是多少  .</p><p>还有一个计算是实际的长度,忘记是什么函数了</p><ul><li>如果里面传的是指针的话，这就是另一种情况了</li></ul></blockquote><h2 id="STM32cube配置出现中文乱码（错误的）"><a href="#STM32cube配置出现中文乱码（错误的）" class="headerlink" title="STM32cube配置出现中文乱码（错误的）"></a>STM32cube配置出现中文乱码（错误的）</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p><blockquote><ul><li>变量名称：JAVA_TOOL_OPTIONS</li><li>变量值：-Dfile.encoding &#x3D; UTF-8</li></ul></blockquote><h2 id="PID-的那些事"><a href="#PID-的那些事" class="headerlink" title="PID 的那些事"></a>PID 的那些事</h2><h3 id="Question："><a href="#Question：" class="headerlink" title="Question："></a>Question：</h3><ul><li>如果在空转的时候，调好的pid，落地后，会不会影响结果？</li><li></li></ul><h2 id="模块化编程问题"><a href="#模块化编程问题" class="headerlink" title="模块化编程问题"></a>模块化编程问题</h2><p>函数调用之间的问题，传参问题，数据处理之后的操作</p>]]></content>
       
       
       
@@ -101,9 +146,9 @@
             
             <tag> 单片机 </tag>
             
-            <tag> HAL </tag>
-            
             <tag> STM32 </tag>
+            
+            <tag> HAL </tag>
             
         </tags>
       
@@ -124,9 +169,9 @@
             
             <tag> 单片机 </tag>
             
-            <tag> HAL </tag>
-            
             <tag> STM32 </tag>
+            
+            <tag> HAL </tag>
             
         </tags>
       
@@ -147,9 +192,9 @@
             
             <tag> 单片机 </tag>
             
-            <tag> HAL </tag>
-            
             <tag> STM32 </tag>
+            
+            <tag> HAL </tag>
             
         </tags>
       
@@ -168,9 +213,9 @@
       
         <tags>
             
-            <tag> 模块 </tag>
-            
             <tag> 单片机 </tag>
+            
+            <tag> 模块 </tag>
             
         </tags>
       
@@ -189,43 +234,11 @@
       
         <tags>
             
-            <tag> 模块 </tag>
-            
             <tag> 单片机 </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hello hexo</title>
-      <link href="/2022/12/07/hello-hexo/"/>
-      <url>/2022/12/07/hello-hexo/</url>
-      
-        <content type="html"><![CDATA[<p><strong>HELLO LLS</strong><br>你好！世界，你好！YWM</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> first </tag>
+            <tag> 模块 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2022/12/07/hello-world/"/>
-      <url>/2022/12/07/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>hexo简单用法</p><span id="more"></span><hr><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     
