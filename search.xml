@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Qcustomplot之修改颜色</title>
+      <link href="/2023/04/04/Qcustomplor%E4%B9%8B%E4%BF%AE%E6%94%B9%E9%A2%9C%E8%89%B2/"/>
+      <url>/2023/04/04/Qcustomplor%E4%B9%8B%E4%BF%AE%E6%94%B9%E9%A2%9C%E8%89%B2/</url>
+      
+        <content type="html"><![CDATA[<p>图像的颜色修改, 控件的颜色修改</p><span id="more"></span><h2 id="Palette类型"><a href="#Palette类型" class="headerlink" title="Palette类型"></a>Palette类型</h2><blockquote><p>改变控件颜色</p></blockquote><ul><li><p>先获取控件</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QPalette plet = line_[i].choose_color-&gt;<span class="built_in">palette</span>();</span><br></pre></td></tr></table></figure></li><li><p>修改控件颜色</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plet.<span class="built_in">setColor</span> (QPalette::Button, color)<span class="comment">// color 为 QColor类型</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="QPen"><a href="#QPen" class="headerlink" title="QPen"></a>QPen</h2><blockquote><p>图像颜色修改</p></blockquote><ul><li>直接修改掉QPen的变量即可, 直接对图像进行颜色赋值</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pen.<span class="built_in">setColor</span> (data_pool_.<span class="built_in">at</span>(i),color);</span><br><span class="line">ui_chart_-&gt;widget-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">setPen</span>(pen);</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">QPalette plet = line_info_[i].choose_color-&gt;<span class="built_in">palette</span>();</span><br><span class="line">QColor currentColor = plet.<span class="built_in">color</span>(QPalette::Button);    <span class="comment">// 当前颜色</span></span><br><span class="line">QColor color = QColorDialog::<span class="built_in">getColor</span>(currentColor, <span class="keyword">this</span>,(<span class="string">&quot;颜色选择&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (color.<span class="built_in">isValid</span>())&#123;</span><br><span class="line">    plet.<span class="built_in">setColor</span> (QPalette::Button, color);</span><br><span class="line">    line_info_[i].choose_color-&gt;<span class="built_in">setPalette</span> (plet);</span><br><span class="line">    data_pool_[i].line_color = color;<span class="comment">// 这句话好像可以删掉</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 改变图像属性</span></span><br><span class="line">    QPen pen;</span><br><span class="line">    pen.<span class="built_in">setWidth</span>(data_pool_.<span class="built_in">at</span>(i).line_width);<span class="comment">//设置线宽,默认是2</span></span><br><span class="line">    pen.<span class="built_in">setColor</span>(data_pool_.<span class="built_in">at</span>(i).line_color);<span class="comment">//设置线条红色</span></span><br><span class="line">    ui_chart_-&gt;widget-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">setPen</span>(pen);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> QT </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Clion与QT的那些事</title>
       <link href="/2023/03/13/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85QT%E7%89%88%E6%9C%AC%E5%BC%83%E5%AD%90/"/>
       <url>/2023/03/13/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85QT%E7%89%88%E6%9C%AC%E5%BC%83%E5%AD%90/</url>
