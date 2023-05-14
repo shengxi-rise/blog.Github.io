@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Qt右键菜单 | YWM&#39;S BLOG</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自定义qt右键菜单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt右键菜单">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/05/10/Qt%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/index.html">
+<meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="自定义qt右键菜单">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-10T13:04:21.000Z">
+<meta property="article:modified_time" content="2023-05-13T08:07:45.571Z">
+<meta property="article:author" content="YWM">
+<meta property="article:tag" content="QT">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.328888.xyz/2022/12/08/fO2za.jpeg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 12.5px;">HAL</a> <a href="/tags/Install/" style="font-size: 10px;">Install</a> <a href="/tags/QT/" style="font-size: 17.5px;">QT</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 15px;">STM32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 15px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xsaistudio.cn">studio</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Qt右键菜单" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/05/10/Qt%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" class="article-date">
+  	<time datetime="2023-05-10T13:04:21.000Z" itemprop="datePublished">2023-05-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Qt右键菜单
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/" rel="tag">QT</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自定义qt右键菜单</p>
+<span id="more"></span>
+
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>​	QTextedit是 自带右键菜单的，如果要自己增加的话，会把原来的功能整的不能使用。</p>
+<h1 id="右键菜单"><a href="#右键菜单" class="headerlink" title="右键菜单"></a>右键菜单</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图表右键菜单</span></span><br><span class="line">    ui_chart_-&gt;widget-&gt;<span class="built_in">setContextMenuPolicy</span>(Qt::CustomContextMenu);</span><br><span class="line">    <span class="built_in">connect</span>(ui_chart_-&gt;widget, &amp;QWidget::customContextMenuRequested, <span class="keyword">this</span>, [&amp;](<span class="type">const</span> QPoint pos) &#123;</span><br><span class="line"></span><br><span class="line">      QMenu *menu = <span class="keyword">new</span> <span class="built_in">QMenu</span>(ui_chart_-&gt;widget);</span><br><span class="line">      QAction *run = <span class="keyword">new</span> <span class="built_in">QAction</span>(<span class="string">&quot;开启滚动&quot;</span>, ui_chart_-&gt;widget);</span><br><span class="line">      QAction *stop = <span class="keyword">new</span> <span class="built_in">QAction</span>(<span class="string">&quot;停止滚动&quot;</span>, ui_chart_-&gt;widget);</span><br><span class="line">      <span class="built_in">connect</span>(run, &amp;QAction::triggered, <span class="keyword">this</span>, [&amp;] &#123;</span><br><span class="line">        <span class="comment">//怎么让它滚动</span></span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;run()&quot;</span>;</span><br><span class="line"></span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="built_in">connect</span>(stop, &amp;QAction::triggered, <span class="keyword">this</span>, [&amp;] &#123;</span><br><span class="line">        <span class="comment">//默认是不滚动的</span></span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;stop()&quot;</span>;</span><br><span class="line"></span><br><span class="line">      &#125;);</span><br><span class="line">      menu-&gt;<span class="built_in">addAction</span>(run);</span><br><span class="line">      menu-&gt;<span class="built_in">addAction</span>(stop);</span><br><span class="line">      menu-&gt;<span class="built_in">move</span>(<span class="built_in">cursor</span>().<span class="built_in">pos</span>());</span><br><span class="line">      menu-&gt;<span class="built_in">show</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="添加控件"><a href="#添加控件" class="headerlink" title="添加控件"></a>添加控件</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">QMenu *menu = <span class="keyword">new</span> <span class="built_in">QMenu</span>(ui_chart_-&gt;widget);</span><br><span class="line"></span><br><span class="line">      QCheckBox *control = <span class="keyword">new</span> <span class="built_in">QCheckBox</span>(<span class="string">&quot;是否滚动&quot;</span>,ui_chart_-&gt;widget);</span><br><span class="line">      rolling_flag==<span class="literal">true</span> ? control-&gt;<span class="built_in">setCheckState</span>(Qt::Checked) : control-&gt;<span class="built_in">setCheckState</span>(Qt::Unchecked);         <span class="comment">// 设置选择框的默认状态</span></span><br><span class="line">      QWidgetAction *choice = <span class="keyword">new</span> <span class="built_in">QWidgetAction</span>(ui_chart_-&gt;widget);</span><br><span class="line">      choice-&gt;<span class="built_in">setDefaultWidget</span>(control);                                       <span class="comment">// 在Action对象中添加控件</span></span><br><span class="line"></span><br><span class="line">      QAction *restore = <span class="keyword">new</span> <span class="built_in">QAction</span>(<span class="string">&quot;自动&quot;</span>, ui_chart_-&gt;widget);</span><br><span class="line">      <span class="built_in">connect</span>(control, &amp;QCheckBox::stateChanged, <span class="keyword">this</span>, [&amp;,<span class="keyword">this</span>](<span class="type">int</span> state) &#123;</span><br><span class="line">        state==Qt::Checked ? rolling_flag = <span class="literal">true</span> : rolling_flag = <span class="literal">false</span>;        <span class="comment">// 设置是否滚动</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="built_in">connect</span>(restore, &amp;QAction::triggered, <span class="keyword">this</span>, [&amp;] &#123;</span><br><span class="line">        <span class="comment">//默认是不滚动的</span></span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;auto()&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; data_pool_.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">            custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleAxes</span>();              <span class="comment">// 自动调整图像，首尾点都显示出来</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      &#125;);</span><br><span class="line">      menu-&gt;<span class="built_in">addAction</span>(choice);</span><br><span class="line">      menu-&gt;<span class="built_in">addAction</span>(restore);</span><br><span class="line">      menu-&gt;<span class="built_in">move</span>(<span class="built_in">cursor</span>().<span class="built_in">pos</span>());           <span class="comment">// 这是什么？</span></span><br><span class="line">      menu-&gt;<span class="built_in">show</span>();</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/10/QCustomplot%E4%B8%ADX%E8%BD%B4%E7%9A%84%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          QCustomplot中X轴的操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/22/d2l%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">d2l环境配置</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2023 YWM
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

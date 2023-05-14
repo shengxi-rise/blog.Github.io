@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>d2l环境配置 | YWM&#39;S BLOG</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在win11平台上部署d2l测试环境的步骤，以及遇到的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="d2l环境配置">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/04/22/d2l%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="在win11平台上部署d2l测试环境的步骤，以及遇到的问题。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/22/p9VbL24.png">
+<meta property="article:published_time" content="2023-04-22T04:59:09.000Z">
+<meta property="article:modified_time" content="2023-04-23T09:38:05.165Z">
+<meta property="article:author" content="YWM">
+<meta property="article:tag" content="Deep Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/04/22/p9VbL24.png">
+  
+    <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.328888.xyz/2022/12/08/fO2za.jpeg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 12.5px;">HAL</a> <a href="/tags/Install/" style="font-size: 10px;">Install</a> <a href="/tags/QT/" style="font-size: 17.5px;">QT</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 15px;">STM32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 15px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xsaistudio.cn">studio</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://i.328888.xyz/2022/12/08/fO2za.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-d2l环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/04/22/d2l%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+  	<time datetime="2023-04-22T04:59:09.000Z" itemprop="datePublished">2023-04-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      d2l环境配置
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/" rel="tag">Deep Learning</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  在win11平台上部署d2l测试环境的步骤，以及遇到的问题。</p>
+<span id="more"></span>
+
+<h2 id="NVIDIA显卡，安装CUBA"><a href="#NVIDIA显卡，安装CUBA" class="headerlink" title="NVIDIA显卡，安装CUBA"></a>NVIDIA显卡，安装CUBA</h2><p>​	到NVIDIA官网，跟着安装提示装就行了。<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads">CUBA</a></p>
+<p>Cuda安装也有很多报错。。。</p>
+<h3 id="Warnning："><a href="#Warnning：" class="headerlink" title="Warnning："></a>Warnning：</h3><p>​	<strong>cuda</strong>的版本要对应pytorch（GPU版），所以一定要选好再装。<strong>cuda</strong>版本也要和<strong>cunn</strong>的版本对应。</p>
+<p><strong>nvcc –version</strong>查看已安装的cuda的版本。</p>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>​	与普通软件卸载方式相同，在程序那里找CUDA的程序卸载，再清理注册表的垃圾。</p>
+<h2 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h2><ol>
+<li><p>先到 <a target="_blank" rel="noopener" href="https://conda.io/en/latest/miniconda.html#other-resources">官网</a> 下载对应的版本，按照提示安装好就行。</p>
+</li>
+<li><p>以管理员身份打开 Anaconda Prompt , Warnning: 以管理员身份运行，全装C盘了。。。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name d2l python=3.9 -y</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>​		<a target="_blank" rel="noopener" href="https://imgse.com/i/p9VbL24"><img src="https://s1.ax1x.com/2023/04/22/p9VbL24.png" alt="p9VbL24.png"></a></p>
+<ol start="3">
+<li>安装Pytorch （这里安装的是cpu版）</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install torch==1.12.0</span><br><span class="line">pip install torchvision==0.13.0</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>删除</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接删除就行</span></span><br><span class="line">pip uninstall torch</span><br><span class="line">pip uninstall torchvision</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>安装d2l包</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install d2l==0.17.6</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>离线下载</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">官网</a></p>
+</li>
+<li><p>找到对应的CUDA的版本，torch，torchvision，torchaudio的whl文件，然后进行离线安装</p>
+</li>
+<li><p>&#96;&#96;&#96;shell<br>pip install *.whl		# 直接把这部分安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 相关命令</span><br><span class="line"></span><br><span class="line">* pip list    --查看已经安装好的库</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  import torch							</span><br><span class="line">  print(torch.__version__)					# 查看torch版本</span><br><span class="line">  print(torch.version.cuda)					# 查看cuda版本</span><br><span class="line">  print(torch.backends.cudnn.version())		# 查看cudnn版本</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="conda命令不能在普通的powershell中使用"><a href="#conda命令不能在普通的powershell中使用" class="headerlink" title="conda命令不能在普通的powershell中使用"></a>conda命令不能在普通的<em>powershell</em>中使用</h3><p>​	一般情况下，conda命令都是在<em>Anaconda powershell promt</em>中使用。</p>
+<ul>
+<li><p>设置环境变量：在环境变量中添加<strong>Anaconda</strong>中包含conda.exe的文件夹目录。</p>
+</li>
+<li><pre><code class="shell]">#在终端运行 
+conda init powershell
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 运行完毕再重启，这时候提示系统禁止运行脚本。修改计算机的执行策略</span><br><span class="line"></span><br><span class="line">* ```shell</span><br><span class="line">  get-executionpolicy</span><br><span class="line">  set-executionpolicy remotesigned		# 选y</span><br><span class="line">  </span><br><span class="line">  set-executionpolicy restricted		# 如果要改回来的话</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>这样子以后，终端默认启动aconda</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/10/Qt%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Qt右键菜单
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/22/%E5%A6%82%E4%BD%95%E5%9C%A8Clion%E4%B8%AD%E4%BC%98%E9%9B%85%E5%9C%B0debug/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何在Clion中优雅地debug</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2023 YWM
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

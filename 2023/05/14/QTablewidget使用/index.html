@@ -3,28 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Clion与QT的那些事 | YWM&#39;S BLOG</title>
+  <title>QTablewidget使用 | YWM&#39;S BLOG</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="因为QT6很多库已经放弃了，所以开发要用到旧版，找了很久才找到。">
+  <meta name="description" content="QTablewidget的各种使用方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Clion与QT的那些事">
-<meta property="og:url" content="https://blog.xsaistudio.cn/2023/03/13/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85QT%E7%89%88%E6%9C%AC%E5%BC%83%E5%AD%90/index.html">
+<meta property="og:title" content="QTablewidget使用">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/05/14/QTablewidget%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="因为QT6很多库已经放弃了，所以开发要用到旧版，找了很久才找到。">
+<meta property="og:description" content="QTablewidget的各种使用方法">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s1.ax1x.com/2023/03/14/ppl2V3V.png">
-<meta property="og:image" content="https://s1.ax1x.com/2023/03/14/pplsbRO.png">
-<meta property="article:published_time" content="2023-03-13T05:59:48.000Z">
-<meta property="article:modified_time" content="2023-04-04T15:37:53.878Z">
+<meta property="article:published_time" content="2023-05-14T08:13:10.000Z">
+<meta property="article:modified_time" content="2023-05-14T08:14:59.666Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="QT">
-<meta property="article:tag" content="Install">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2023/03/14/ppl2V3V.png">
   
     <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
   
@@ -178,11 +175,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-如何安装QT版本弃子" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-QTablewidget使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2023/03/13/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85QT%E7%89%88%E6%9C%AC%E5%BC%83%E5%AD%90/" class="article-date">
-  	<time datetime="2023-03-13T05:59:48.000Z" itemprop="datePublished">2023-03-13</time>
+      <a href="/2023/05/14/QTablewidget%E4%BD%BF%E7%94%A8/" class="article-date">
+  	<time datetime="2023-05-14T08:13:10.000Z" itemprop="datePublished">2023-05-14</time>
 </a>
     </div>
   
@@ -195,7 +192,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Clion与QT的那些事
+      QTablewidget使用
       
     </h1>
   
@@ -205,7 +202,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Install/" rel="tag">Install</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/" rel="tag">QT</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/" rel="tag">QT</a></li></ul>
 	</div>
 
         
@@ -217,60 +214,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>因为QT6很多库已经放弃了，所以开发要用到旧版，找了很久才找到。</p>
+        <p>QTablewidget的各种使用方法</p>
 <span id="more"></span>
 
-<h2 id="QT的在线安装程序，最低版本已经去到了v5-15，虽然区别不大，但还是统一开发环境比较好。"><a href="#QT的在线安装程序，最低版本已经去到了v5-15，虽然区别不大，但还是统一开发环境比较好。" class="headerlink" title="QT的在线安装程序，最低版本已经去到了v5.15，虽然区别不大，但还是统一开发环境比较好。"></a>QT的在线安装程序，最低版本已经去到了v5.15，虽然区别不大，但还是统一开发环境比较好。</h2><blockquote>
-<p>QT老版本下载: <a target="_blank" rel="noopener" href="https://download.qt.io/archive/qt/">qtdownload</a></p>
-<p>QT论坛: <a target="_blank" rel="noopener" href="https://forum.qt.io/">Qt Forum</a></p>
-</blockquote>
-<h2 id="QT在线安装器加载源的问题"><a href="#QT在线安装器加载源的问题" class="headerlink" title="QT在线安装器加载源的问题"></a>QT在线安装器加载源的问题</h2><p>​	问题：1. 添加的源用不了	2. 官方的源用不了</p>
-<blockquote>
-<p>使用终端打开安装器, 在后面加上  –mirror <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/qt">https://mirrors.aliyun.com/qt</a></p>
-<p>如 .\qt_online.exe –mirror <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/qt">https://mirrors.aliyun.com/qt</a></p>
-</blockquote>
-<h2 id="用Clion开发QT"><a href="#用Clion开发QT" class="headerlink" title="用Clion开发QT"></a>用Clion开发QT</h2><ol>
-<li><p>正常下载好QT, 创建好项目并且可以运行</p>
-<blockquote>
-<p>QT安装可以用在线工具, 也可以下载离线安装包</p>
-<p>安装的时候, 一定要选编译器(上下都要选)…</p>
-</blockquote>
-</li>
-<li><p>Clion中配置好QT的工具链</p>
-</li>
-</ol>
-<blockquote>
-<p>在Tools chain中添加QT的debug, 把qt&#x2F;Tools&#x2F;5.12.12&#x2F;Mingw 添加上去</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2023/03/14/ppl2V3V.png"></p>
-<h2 id="关于windows环境变量"><a href="#关于windows环境变量" class="headerlink" title="关于windows环境变量"></a>关于windows环境变量</h2><p>添加完环境变量，一定要重启！！！（除非你用在cmd用命令添加的）</p>
-<h2 id="Clion编译QT程序的问题"><a href="#Clion编译QT程序的问题" class="headerlink" title="Clion编译QT程序的问题"></a>Clion编译QT程序的问题</h2><ol>
-<li>找不到qt-config.cmake</li>
-</ol>
-<blockquote>
-<p>在CMake.list程序里面，添加上set(CMAKE_PREFIX_PATH “E:\\QT\\5.12.11\\mingw73_64\\lib\\cmake\\Qt5”)</p>
-<p>此处改为自己的路径</p>
-</blockquote>
-<ol start="2">
-<li>找不到对应的库，比如说这次(qserialport)</li>
-</ol>
-<blockquote>
-<p>先去找官网或者别的地方找，看看每个版本之间的差异，可能版本的迭代把某些模块删掉了。</p>
-</blockquote>
-<ol start="3">
-<li><p>Clion编译通过了，但是运行报错-1073741515 (0xC0000135)</p>
-<blockquote>
-<p>运行失败，这个报错是没有链接到动态链接库dll的原因，在系统环境变量中加上qt的编译路径，如：</p>
-<p><img src="https://s1.ax1x.com/2023/03/14/pplsbRO.png"></p>
-</blockquote>
-</li>
-</ol>
-<p>最后一定要重启!!!</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>装软件一定要考虑团队的版本问题, 还有安装时所带的资料库</li>
-<li>windows环境变量设置完之后, 一定要重启电脑</li>
-<li>网上搜教程的同时, 也要去官方论坛看看, bing国际版</li>
-</ul>
+
+
+<h1 id="隐藏行列"><a href="#隐藏行列" class="headerlink" title="隐藏行列"></a>隐藏行列</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 隐藏列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">0</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第一列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">2</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第三列</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐藏行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">0</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第一行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">2</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第三行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">0</span>, <span class="literal">false</span>); <span class="comment">// 显示第一列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">2</span>, <span class="literal">false</span>); <span class="comment">// 显示第三列</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">0</span>, <span class="literal">false</span>); <span class="comment">// 显示第一行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">2</span>, <span class="literal">false</span>); <span class="comment">// 显示第三行</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -280,18 +230,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/04/04/Qcustomplor%E4%B9%8B%E4%BF%AE%E6%94%B9%E9%A2%9C%E8%89%B2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/05/14/stage/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          Qcustomplot之修改颜色
+          stage
         
       </div>
     </a>
   
   
-    <a href="/2023/03/09/QT%E4%BF%AE%E6%94%B9%E6%A7%BD%E5%87%BD%E6%95%B0%EF%BC%8Clambda%E8%A1%A8%E8%BE%BE%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">QT修改槽函数，lambda表达，正则表达</div>
+    <a href="/2023/05/10/QCustomplot%E4%B8%ADX%E8%BD%B4%E7%9A%84%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QCustomplot中X轴的操作</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
