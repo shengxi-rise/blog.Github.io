@@ -4,6 +4,73 @@
   
     
     <entry>
+      <title>Clion进行Qt6开发</title>
+      <link href="/2023/06/08/Clion%E8%BF%9B%E8%A1%8CQt6%E5%BC%80%E5%8F%91/"/>
+      <url>/2023/06/08/Clion%E8%BF%9B%E8%A1%8CQt6%E5%BC%80%E5%8F%91/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Install </tag>
+            
+            <tag> Clion </tag>
+            
+            <tag> Qt6 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STM32之ADC</title>
+      <link href="/2023/06/06/STM32%E4%B9%8BADC/"/>
+      <url>/2023/06/06/STM32%E4%B9%8BADC/</url>
+      
+        <content type="html"><![CDATA[<p>国电备赛，AD9851的使用，ADC+DMA+AD9851</p><span id="more"></span><h1 id="AD9851使用教程"><a href="#AD9851使用教程" class="headerlink" title="AD9851使用教程"></a>AD9851使用教程</h1><ol><li>初始化</li><li>设置分频？</li><li>将数据写入寄存器</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> STM32 </tag>
+            
+            <tag> DDS </tag>
+            
+            <tag> ADC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STM32 添加DSP库</title>
+      <link href="/2023/05/19/STM32-%E6%B7%BB%E5%8A%A0DSP%E5%BA%93/"/>
+      <url>/2023/05/19/STM32-%E6%B7%BB%E5%8A%A0DSP%E5%BA%93/</url>
+      
+        <content type="html"><![CDATA[<p>stm32添加DSP库，实现FFT</p><span id="more"></span><p><a href="https://blog.csdn.net/qq_34022877/article/details/117855263">stm32cubemx</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 国电 </tag>
+            
+            <tag> Stm32 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言操作Excel</title>
       <link href="/2023/05/19/C%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9CExcel/"/>
       <url>/2023/05/19/C%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9CExcel/</url>
@@ -69,7 +136,7 @@
       <link href="/2023/05/10/QCustomplot%E4%B8%ADX%E8%BD%B4%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
       <url>/2023/05/10/QCustomplot%E4%B8%ADX%E8%BD%B4%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
       
-        <content type="html"><![CDATA[<span id="more"></span><h1 id="关于我找错方向，测试了一晚的代码"><a href="#关于我找错方向，测试了一晚的代码" class="headerlink" title="关于我找错方向，测试了一晚的代码"></a>关于我找错方向，测试了一晚的代码</h1><blockquote><p>这个是关于图像放缩的代码，具体看注释</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// key是x轴，value是y轴</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> currentRangeLower = ui_chart_-&gt;widget-&gt;xAxis-&gt;<span class="built_in">range</span>().lower;</span><br><span class="line"><span class="type">double</span> currentRangeUpper = ui_chart_-&gt;widget-&gt;xAxis-&gt;<span class="built_in">range</span>().upper;</span><br><span class="line"><span class="type">double</span> newRangeLower = data_pool_[i].data_list[i].time - <span class="number">30</span>;</span><br><span class="line"><span class="type">double</span> newRangeUpper = data_pool_[i].data_list[i].time;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移动 x 轴范围</span></span><br><span class="line">ui_chart_-&gt;widget-&gt;xAxis-&gt;<span class="built_in">moveRange</span>(newRangeLower - currentRangeLower, newRangeUpper - currentRangeUpper);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图像的首尾都确定</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(<span class="number">0</span>)-&gt;<span class="built_in">rescaleAxes</span>();    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成了任意图像，没测试环境，不知是否有问题</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleAxes</span>(<span class="literal">true</span>);          </span><br><span class="line"></span><br><span class="line"> <span class="comment">// y轴不变，x轴始终首尾显示</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleKeyAxis</span>(<span class="literal">false</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// y轴不动，不断地压缩图像，显示尾点</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleKeyAxis</span>(<span class="literal">true</span>);     </span><br><span class="line"></span><br><span class="line"> <span class="comment">// x轴不变，y轴始终显示最大最小，</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(rolling_flag);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 好像区别不大</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">true</span>);     </span><br><span class="line"></span><br><span class="line"> <span class="comment">// 和下面一样</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">false</span>,<span class="literal">false</span>);    </span><br><span class="line"></span><br><span class="line"> <span class="comment">// x轴不变，y轴始终显示最大最小，而且都贴着边轴</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">false</span>,<span class="literal">true</span>);      </span><br><span class="line"></span><br><span class="line"> <span class="comment">// 和下面一样</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">true</span>,<span class="literal">false</span>);      </span><br><span class="line"></span><br><span class="line"><span class="comment">// x轴不变，y始终显示最大最小，不过缩放的是轴，图像没关系</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">true</span>,<span class="literal">true</span>);        </span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>​QCustomplot的坐标轴操作，图像缩放问题。</p><span id="more"></span><h1 id="关于我找错方向，测试了一晚的代码"><a href="#关于我找错方向，测试了一晚的代码" class="headerlink" title="关于我找错方向，测试了一晚的代码"></a>关于我找错方向，测试了一晚的代码</h1><blockquote><p>这个是关于图像放缩的代码，具体看注释</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// key是x轴，value是y轴</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> currentRangeLower = ui_chart_-&gt;widget-&gt;xAxis-&gt;<span class="built_in">range</span>().lower;</span><br><span class="line"><span class="type">double</span> currentRangeUpper = ui_chart_-&gt;widget-&gt;xAxis-&gt;<span class="built_in">range</span>().upper;</span><br><span class="line"><span class="type">double</span> newRangeLower = data_pool_[i].data_list[i].time - <span class="number">30</span>;</span><br><span class="line"><span class="type">double</span> newRangeUpper = data_pool_[i].data_list[i].time;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移动 x 轴范围</span></span><br><span class="line">ui_chart_-&gt;widget-&gt;xAxis-&gt;<span class="built_in">moveRange</span>(newRangeLower - currentRangeLower, newRangeUpper - currentRangeUpper);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图像的首尾都确定</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(<span class="number">0</span>)-&gt;<span class="built_in">rescaleAxes</span>();    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成了任意图像，没测试环境，不知是否有问题</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleAxes</span>(<span class="literal">true</span>);          </span><br><span class="line"></span><br><span class="line"> <span class="comment">// y轴不变，x轴始终首尾显示</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleKeyAxis</span>(<span class="literal">false</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// y轴不动，不断地压缩图像，显示尾点</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleKeyAxis</span>(<span class="literal">true</span>);     </span><br><span class="line"></span><br><span class="line"> <span class="comment">// x轴不变，y轴始终显示最大最小，</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(rolling_flag);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 好像区别不大</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">true</span>);     </span><br><span class="line"></span><br><span class="line"> <span class="comment">// 和下面一样</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">false</span>,<span class="literal">false</span>);    </span><br><span class="line"></span><br><span class="line"> <span class="comment">// x轴不变，y轴始终显示最大最小，而且都贴着边轴</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">false</span>,<span class="literal">true</span>);      </span><br><span class="line"></span><br><span class="line"> <span class="comment">// 和下面一样</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">true</span>,<span class="literal">false</span>);      </span><br><span class="line"></span><br><span class="line"><span class="comment">// x轴不变，y始终显示最大最小，不过缩放的是轴，图像没关系</span></span><br><span class="line">custom_plot_-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">rescaleValueAxis</span>(<span class="literal">true</span>,<span class="literal">true</span>);        </span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -130,7 +197,7 @@
       <link href="/2023/04/22/%E5%A6%82%E4%BD%95%E5%9C%A8Clion%E4%B8%AD%E4%BC%98%E9%9B%85%E5%9C%B0debug/"/>
       <url>/2023/04/22/%E5%A6%82%E4%BD%95%E5%9C%A8Clion%E4%B8%AD%E4%BC%98%E9%9B%85%E5%9C%B0debug/</url>
       
-        <content type="html"><![CDATA[<p> 各种debug的技巧，Clion的优点</p><span id="more"></span><h2 id="内存泄漏问题"><a href="#内存泄漏问题" class="headerlink" title="内存泄漏问题"></a>内存泄漏问题</h2><p>​Clion的debug可以设置在程序出现异常的前一步中断住，这样可以看是哪一步的问题。</p>]]></content>
+        <content type="html"><![CDATA[<p> 各种debug的技巧，Clion的优点</p><span id="more"></span><h2 id="内存泄漏问题"><a href="#内存泄漏问题" class="headerlink" title="内存泄漏问题"></a>内存泄漏问题</h2><p>​Clion的debug可以设置在程序出现异常的前一步中断住，这样可以看是哪一步的问题。</p><h2 id="cmake的debug"><a href="#cmake的debug" class="headerlink" title="cmake的debug"></a>cmake的debug</h2><p>​直接在cmake文件里面打断点，也是可以调试cmake语句的</p>]]></content>
       
       
       
