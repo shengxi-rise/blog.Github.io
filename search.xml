@@ -4,11 +4,72 @@
   
     
     <entry>
+      <title>yolov5踩坑之旅</title>
+      <link href="/2023/07/21/yolov5%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85/"/>
+      <url>/2023/07/21/yolov5%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h1 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h1><p>gpu训练0.044hours</p><p>cup训练0.381</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> yolo </tag>
+            
+            <tag> 视觉 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>stm32之ADC+DMA</title>
+      <link href="/2023/07/18/stm32%E4%B9%8BADC-DMA/"/>
+      <url>/2023/07/18/stm32%E4%B9%8BADC-DMA/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><h1 id="cubemx配置"><a href="#cubemx配置" class="headerlink" title="cubemx配置"></a>cubemx配置</h1><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307181644326.png" alt="image-20230718164408198"></p><p>Scan conversion mode  扫描转换模式</p><p>Continuous Conversion Mode  连续转换模式</p><p>DMA  Continuous Requests  DMA  连续请求</p><h1 id="分"><a href="#分" class="headerlink" title="分"></a>分</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> STM32 </tag>
+            
+            <tag> ADC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>喵提醒</title>
+      <link href="/2023/07/15/%E5%96%B5%E6%8F%90%E9%86%92/"/>
+      <url>/2023/07/15/%E5%96%B5%E6%8F%90%E9%86%92/</url>
+      
+        <content type="html"><![CDATA[<p>微信公众号提醒工具</p><span id="more"></span><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307151730014.png" alt="image-20230715173012950"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Clion进行Qt6开发</title>
       <link href="/2023/06/08/Clion%E8%BF%9B%E8%A1%8CQt6%E5%BC%80%E5%8F%91/"/>
       <url>/2023/06/08/Clion%E8%BF%9B%E8%A1%8CQt6%E5%BC%80%E5%8F%91/</url>
       
-        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+        <content type="html"><![CDATA[<p>内部资料</p><span id="more"></span>]]></content>
       
       
       
@@ -19,29 +80,6 @@
             <tag> Clion </tag>
             
             <tag> Qt6 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>STM32之ADC</title>
-      <link href="/2023/06/06/STM32%E4%B9%8BADC/"/>
-      <url>/2023/06/06/STM32%E4%B9%8BADC/</url>
-      
-        <content type="html"><![CDATA[<p>国电备赛，AD9851的使用，ADC+DMA+AD9851</p><span id="more"></span><h1 id="AD9851使用教程"><a href="#AD9851使用教程" class="headerlink" title="AD9851使用教程"></a>AD9851使用教程</h1><ol><li>初始化</li><li>设置分频？</li><li>将数据写入寄存器</li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> STM32 </tag>
-            
-            <tag> DDS </tag>
-            
-            <tag> ADC </tag>
             
         </tags>
       
@@ -369,7 +407,7 @@
       <link href="/2023/01/09/%E8%93%9D%E7%89%99%E5%B0%8F%E8%BD%A6%E4%B9%8B%E6%94%B9bug/"/>
       <url>/2023/01/09/%E8%93%9D%E7%89%99%E5%B0%8F%E8%BD%A6%E4%B9%8B%E6%94%B9bug/</url>
       
-        <content type="html"><![CDATA[<p>经典写代码半小时，改bug两小时</p><span id="more"></span><h2 id="串口接收中断"><a href="#串口接收中断" class="headerlink" title="串口接收中断"></a>串口接收中断</h2><blockquote><p>在cube配置UART的时候,忘记在中断接收那里✔了…</p></blockquote><h2 id="串口接收数据过程"><a href="#串口接收数据过程" class="headerlink" title="串口接收数据过程"></a>串口接收数据过程</h2><blockquote><p>发送数据时,是整体打包发送.(在中断回调函数中)在接收的时候,是一位一位读取的,在检测到后面两个截止位的时候,就会停止接收,进入下一个任务.</p><p>如果在检测到截止位就立即清空数据包, 那么在外面的大循环中就无法判断到接收到的数据包, 应该在执行完判断任务后再清空.</p></blockquote><h2 id="串口接收到的数据包"><a href="#串口接收到的数据包" class="headerlink" title="串口接收到的数据包"></a>串口接收到的数据包</h2><blockquote><p>通过普通的usb转串口模块,接收到的数据包有两个截止位(0X0D,0X0A)</p><p>但是用蓝牙通信发送的,只是软件上配置的数据,没有加截止位</p></blockquote><h2 id="printf的重定向"><a href="#printf的重定向" class="headerlink" title="printf的重定向"></a>printf的重定向</h2><p>在usart.c源文件中(针对于 cube),添加下面的代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart1;</span><br><span class="line"><span class="comment">//只重定向到了UART1</span></span><br><span class="line"><span class="comment">//重定向printf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fputc</span><span class="params">(<span class="type">int</span> ch,FILE* f)</span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1,(<span class="type">uint8_t</span>* )&amp;ch,<span class="number">1</span>,<span class="number">1000</span>);<span class="comment">//注意这里的int类型的ch,要强制转换一下类型</span></span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重定向scanf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fgetc</span><span class="params">(FILE* F)</span>&#123;</span><br><span class="line">  <span class="type">uint8_t</span> ch_r = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1,&amp;ch_r,<span class="number">1</span>,<span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch_r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>重定向原理: printf默认输出设备是显示器终端,如果要显示到串口或者lcd之类上,就要重定向.</p><p><strong>注意</strong> : 还要在keil上勾选use microlib</p></blockquote><h2 id="sizeof的计算"><a href="#sizeof的计算" class="headerlink" title="sizeof的计算"></a>sizeof的计算</h2><blockquote><p>sizeof计算的是定义到的数组长度,也就是定义了多少,计算出来就是多少  .</p><p>还有一个计算是实际的长度,忘记是什么函数了</p><ul><li>如果里面传的是指针的话，这就是另一种情况了</li></ul></blockquote><h2 id="STM32cube配置出现中文乱码（错误的）"><a href="#STM32cube配置出现中文乱码（错误的）" class="headerlink" title="STM32cube配置出现中文乱码（错误的）"></a>STM32cube配置出现中文乱码（错误的）</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p><blockquote><ul><li>变量名称：JAVA_TOOL_OPTIONS</li><li>变量值：-Dfile.encoding &#x3D; UTF-8</li></ul></blockquote><h2 id="PID-的那些事"><a href="#PID-的那些事" class="headerlink" title="PID 的那些事"></a>PID 的那些事</h2><h3 id="Question："><a href="#Question：" class="headerlink" title="Question："></a>Question：</h3><ul><li>如果在空转的时候，调好的pid，落地后，会不会影响结果？</li><li></li></ul><h2 id="模块化编程问题"><a href="#模块化编程问题" class="headerlink" title="模块化编程问题"></a>模块化编程问题</h2><p>函数调用之间的问题，传参问题，数据处理之后的操作</p>]]></content>
+        <content type="html"><![CDATA[<p>经典写代码半小时，改bug两小时</p><span id="more"></span><h2 id="串口接收中断"><a href="#串口接收中断" class="headerlink" title="串口接收中断"></a>串口接收中断</h2><blockquote><p>在cube配置UART的时候,忘记在中断接收那里✔了…</p></blockquote><h2 id="串口接收数据过程"><a href="#串口接收数据过程" class="headerlink" title="串口接收数据过程"></a>串口接收数据过程</h2><blockquote><p>发送数据时,是整体打包发送.(在中断回调函数中)在接收的时候,是一位一位读取的,在检测到后面两个截止位的时候,就会停止接收,进入下一个任务.</p><p>如果在检测到截止位就立即清空数据包, 那么在外面的大循环中就无法判断到接收到的数据包, 应该在执行完判断任务后再清空.</p></blockquote><h2 id="串口接收到的数据包"><a href="#串口接收到的数据包" class="headerlink" title="串口接收到的数据包"></a>串口接收到的数据包</h2><blockquote><p>通过普通的usb转串口模块,接收到的数据包有两个截止位(0X0D,0X0A)</p><p>但是用蓝牙通信发送的,只是软件上配置的数据,没有加截止位</p></blockquote><h2 id="printf的重定向"><a href="#printf的重定向" class="headerlink" title="printf的重定向"></a>printf的重定向</h2><p>在usart.c源文件中(针对于 cube),添加下面的代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart1;</span><br><span class="line"><span class="comment">//只重定向到了UART1</span></span><br><span class="line"><span class="comment">//重定向printf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fputc</span><span class="params">(<span class="type">int</span> ch,FILE* f)</span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1,(<span class="type">uint8_t</span>* )&amp;ch,<span class="number">1</span>,<span class="number">1000</span>);<span class="comment">//注意这里的int类型的ch,要强制转换一下类型</span></span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重定向scanf函数到串口</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fgetc</span><span class="params">(FILE* F)</span>&#123;</span><br><span class="line">  <span class="type">uint8_t</span> ch_r = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1,&amp;ch_r,<span class="number">1</span>,<span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch_r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>重定向原理: printf默认输出设备是显示器终端,如果要显示到串口或者lcd之类上,就要重定向.</p><p><strong>注意</strong> : 还要在keil上勾选use microlib</p><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307271446197.png" alt="image-20230727144627086"></p></blockquote><h2 id="sizeof的计算"><a href="#sizeof的计算" class="headerlink" title="sizeof的计算"></a>sizeof的计算</h2><blockquote><p>sizeof计算的是定义到的数组长度,也就是定义了多少,计算出来就是多少  .</p><p>还有一个计算是实际的长度,忘记是什么函数了</p><ul><li>如果里面传的是指针的话，这就是另一种情况了</li></ul></blockquote><h2 id="STM32cube配置出现中文乱码（错误的）"><a href="#STM32cube配置出现中文乱码（错误的）" class="headerlink" title="STM32cube配置出现中文乱码（错误的）"></a>STM32cube配置出现中文乱码（错误的）</h2><p>在Windows的环境变量中加入这个, 这种方法目前还没测试过.</p><blockquote><ul><li>变量名称：JAVA_TOOL_OPTIONS</li><li>变量值：-Dfile.encoding &#x3D; UTF-8</li></ul></blockquote><h2 id="PID-的那些事"><a href="#PID-的那些事" class="headerlink" title="PID 的那些事"></a>PID 的那些事</h2><h3 id="Question："><a href="#Question：" class="headerlink" title="Question："></a>Question：</h3><ul><li>如果在空转的时候，调好的pid，落地后，会不会影响结果？</li><li></li></ul><h2 id="模块化编程问题"><a href="#模块化编程问题" class="headerlink" title="模块化编程问题"></a>模块化编程问题</h2><p>函数调用之间的问题，传参问题，数据处理之后的操作</p>]]></content>
       
       
       

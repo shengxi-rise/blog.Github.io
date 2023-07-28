@@ -3,19 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: DDS | YWM&#39;S BLOG</title>
+  <title>stm32之ADC+DMA | YWM&#39;S BLOG</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="YWM&#39;S BLOG">
-<meta property="og:url" content="https://blog.xsaistudio.cn/tags/DDS/index.html">
+  <meta name="description" content="cubemx配置 Scan conversion mode  扫描转换模式 Continuous Conversion Mode  连续转换模式	 DMA  Continuous Requests  DMA  连续请求 分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stm32之ADC+DMA">
+<meta property="og:url" content="https://blog.xsaistudio.cn/2023/07/18/stm32%E4%B9%8BADC-DMA/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="cubemx配置 Scan conversion mode  扫描转换模式 Continuous Conversion Mode  连续转换模式	 DMA  Continuous Requests  DMA  连续请求 分">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307181644326.png">
+<meta property="article:published_time" content="2023-07-18T08:40:37.000Z">
+<meta property="article:modified_time" content="2023-07-18T09:00:54.166Z">
 <meta property="article:author" content="YWM">
+<meta property="article:tag" content="STM32">
+<meta property="article:tag" content="ADC">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307181644326.png">
   
     <link rel="alternative" href="/atom.xml" title="YWM&#39;S BLOG" type="application/atom+xml">
   
@@ -113,7 +121,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ADC/" style="font-size: 10px;">ADC</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Clion/" style="font-size: 10px;">Clion</a> <a href="/tags/DDS/" style="font-size: 10px;">DDS</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 13.33px;">HAL</a> <a href="/tags/Install/" style="font-size: 11.67px;">Install</a> <a href="/tags/QT/" style="font-size: 18.33px;">QT</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Qt6/" style="font-size: 10px;">Qt6</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 16.67px;">STM32</a> <a href="/tags/Stm32/" style="font-size: 10px;">Stm32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E5%9B%BD%E7%94%B5/" style="font-size: 10px;">国电</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 15px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a>
+						<a href="/tags/ADC/" style="font-size: 10px;">ADC</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Clion/" style="font-size: 10px;">Clion</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Gazebo/" style="font-size: 10px;">Gazebo</a> <a href="/tags/HAL/" style="font-size: 13.33px;">HAL</a> <a href="/tags/Install/" style="font-size: 11.67px;">Install</a> <a href="/tags/QT/" style="font-size: 18.33px;">QT</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Qt6/" style="font-size: 10px;">Qt6</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a> <a href="/tags/STM32/" style="font-size: 16.67px;">STM32</a> <a href="/tags/Stm32/" style="font-size: 10px;">Stm32</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/yolo/" style="font-size: 10px;">yolo</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 20px;">单片机</a> <a href="/tags/%E5%9B%BD%E7%94%B5/" style="font-size: 10px;">国电</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E6%A8%A1%E5%9D%97/" style="font-size: 15px;">模块</a> <a href="/tags/%E7%94%B5%E6%9C%BA/" style="font-size: 10px;">电机</a> <a href="/tags/%E8%A7%86%E8%A7%89/" style="font-size: 10px;">视觉</a>
 					</div>
 				</section>
 				
@@ -169,57 +177,84 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-stm32之ADC-DMA" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/06/STM32%E4%B9%8BADC/" class="archive-article-date">
-  	<time datetime="2023-06-06T13:48:59.000Z" itemprop="datePublished">Jun 6</time>
+    <div class="article-meta">
+      <a href="/2023/07/18/stm32%E4%B9%8BADC-DMA/" class="article-date">
+  	<time datetime="2023-07-18T08:40:37.000Z" itemprop="datePublished">2023-07-18</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/06/06/STM32%E4%B9%8BADC/">
-        STM32之ADC
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-      </a>
+  
+    <h1 class="article-title" itemprop="name">
+      stm32之ADC+DMA
+      
     </h1>
   
 
-        <div class="article-info info-on-left">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ADC/" rel="tag">ADC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDS/" rel="tag">DDS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ADC/" rel="tag">ADC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li></ul>
 	</div>
 
-          
+        
 
-          
-        </div>
+        
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+<h1 id="cubemx配置"><a href="#cubemx配置" class="headerlink" title="cubemx配置"></a>cubemx配置</h1><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307181644326.png" alt="image-20230718164408198"></p>
+<p>Scan conversion mode  扫描转换模式</p>
+<p>Continuous Conversion Mode  连续转换模式	</p>
+<p>DMA  Continuous Requests  DMA  连续请求</p>
+<h1 id="分"><a href="#分" class="headerlink" title="分"></a>分</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/07/21/yolov5%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          yolov5踩坑之旅
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/07/15/%E5%96%B5%E6%8F%90%E9%86%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">喵提醒</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
 
 </div>
       <footer id="footer">
@@ -244,9 +279,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
