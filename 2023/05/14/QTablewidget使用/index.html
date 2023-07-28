@@ -26,8 +26,8 @@
 <meta property="article:published_time" content="2023-05-14T08:13:10.000Z">
 <meta property="article:modified_time" content="2023-05-14T08:14:59.666Z">
 <meta property="article:author" content="YWM">
-<meta property="article:tag" content="QT">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="QT">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -279,7 +279,7 @@
 
 
 
-<h1 id="隐藏行列"><a href="#隐藏行列" class="headerlink" title="隐藏行列"></a>隐藏行列</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 隐藏列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">0</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第一列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">2</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第三列</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐藏行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">0</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第一行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">2</span>, <span class="literal">true</span>); <span class="comment">// 隐藏第三行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">0</span>, <span class="literal">false</span>); <span class="comment">// 显示第一列</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setColumnHidden</span>(<span class="number">2</span>, <span class="literal">false</span>); <span class="comment">// 显示第三列</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">0</span>, <span class="literal">false</span>); <span class="comment">// 显示第一行</span></span><br><span class="line">ui-&gt;tableWidget-&gt;<span class="built_in">setRowHidden</span>(<span class="number">2</span>, <span class="literal">false</span>); <span class="comment">// 显示第三行</span></span><br></pre></td></tr></table></figure>
+<h1 id="隐藏行列"><a href="#隐藏行列" class="headerlink" title="隐藏行列"></a>隐藏行列</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 隐藏列</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setColumnHidden</span>(<span class="hljs-number">0</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// 隐藏第一列</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setColumnHidden</span>(<span class="hljs-number">2</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// 隐藏第三列</span><br><br><span class="hljs-comment">// 隐藏行</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setRowHidden</span>(<span class="hljs-number">0</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// 隐藏第一行</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setRowHidden</span>(<span class="hljs-number">2</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// 隐藏第三行</span><br><br><span class="hljs-comment">// 显示列</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setColumnHidden</span>(<span class="hljs-number">0</span>, <span class="hljs-literal">false</span>); <span class="hljs-comment">// 显示第一列</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setColumnHidden</span>(<span class="hljs-number">2</span>, <span class="hljs-literal">false</span>); <span class="hljs-comment">// 显示第三列</span><br><br><span class="hljs-comment">// 显示行</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setRowHidden</span>(<span class="hljs-number">0</span>, <span class="hljs-literal">false</span>); <span class="hljs-comment">// 显示第一行</span><br>ui-&gt;tableWidget-&gt;<span class="hljs-built_in">setRowHidden</span>(<span class="hljs-number">2</span>, <span class="hljs-literal">false</span>); <span class="hljs-comment">// 显示第三行</span><br></code></pre></td></tr></table></figure>
 
 
                 
@@ -293,9 +293,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/QT/" class="print-no-link">#QT</a>
-      
         <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/QT/" class="print-no-link">#QT</a>
       
     </div>
   

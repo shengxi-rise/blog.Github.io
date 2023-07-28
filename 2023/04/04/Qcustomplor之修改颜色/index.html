@@ -24,10 +24,10 @@
 <meta property="og:description" content="图像的颜色修改, 控件的颜色修改">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-04T15:41:03.000Z">
-<meta property="article:modified_time" content="2023-04-20T02:33:18.504Z">
+<meta property="article:modified_time" content="2023-04-20T02:33:20.000Z">
 <meta property="article:author" content="YWM">
-<meta property="article:tag" content="QT">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="QT">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -282,10 +282,10 @@
 </blockquote>
 <ul>
 <li><p>先获取控件</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QPalette plet = line_[i].choose_color-&gt;<span class="built_in">palette</span>();</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">QPalette plet = line_[i].choose_color-&gt;<span class="hljs-built_in">palette</span>();<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>修改控件颜色</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plet.<span class="built_in">setColor</span> (QPalette::Button, color)		<span class="comment">// color 为 QColor类型</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">plet.<span class="hljs-built_in">setColor</span> (QPalette::Button, color)		<span class="hljs-comment">// color 为 QColor类型</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="QPen"><a href="#QPen" class="headerlink" title="QPen"></a>QPen</h2><blockquote>
 <p>图像颜色修改</p>
@@ -293,13 +293,13 @@
 <ul>
 <li>直接修改掉QPen的变量即可, 直接对图像进行颜色赋值</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pen.<span class="built_in">setColor</span> (data_pool_.<span class="built_in">at</span>(i),color);</span><br><span class="line">ui_chart_-&gt;widget-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">setPen</span>(pen);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">pen.<span class="hljs-built_in">setColor</span> (data_pool_.<span class="hljs-built_in">at</span>(i),color);<br>ui_chart_-&gt;widget-&gt;<span class="hljs-built_in">graph</span>(i)-&gt;<span class="hljs-built_in">setPen</span>(pen);<br></code></pre></td></tr></table></figure>
 
 
 
 
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">QPalette plet = line_info_[i].choose_color-&gt;<span class="built_in">palette</span>();</span><br><span class="line">QColor currentColor = plet.<span class="built_in">color</span>(QPalette::Button);    <span class="comment">// 当前颜色</span></span><br><span class="line">QColor color = QColorDialog::<span class="built_in">getColor</span>(currentColor, <span class="keyword">this</span>,(<span class="string">&quot;颜色选择&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (color.<span class="built_in">isValid</span>())&#123;</span><br><span class="line">    plet.<span class="built_in">setColor</span> (QPalette::Button, color);</span><br><span class="line">    line_info_[i].choose_color-&gt;<span class="built_in">setPalette</span> (plet);</span><br><span class="line">    data_pool_[i].line_color = color;		<span class="comment">// 这句话好像可以删掉</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 改变图像属性</span></span><br><span class="line">    QPen pen;</span><br><span class="line">    pen.<span class="built_in">setWidth</span>(data_pool_.<span class="built_in">at</span>(i).line_width);<span class="comment">//设置线宽,默认是2</span></span><br><span class="line">    pen.<span class="built_in">setColor</span>(data_pool_.<span class="built_in">at</span>(i).line_color);<span class="comment">//设置线条红色</span></span><br><span class="line">    ui_chart_-&gt;widget-&gt;<span class="built_in">graph</span>(i)-&gt;<span class="built_in">setPen</span>(pen);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++">QPalette plet = line_info_[i].choose_color-&gt;<span class="hljs-built_in">palette</span>();<br>QColor currentColor = plet.<span class="hljs-built_in">color</span>(QPalette::Button);    <span class="hljs-comment">// 当前颜色</span><br>QColor color = QColorDialog::<span class="hljs-built_in">getColor</span>(currentColor, <span class="hljs-keyword">this</span>,(<span class="hljs-string">&quot;颜色选择&quot;</span>));<br><br><span class="hljs-keyword">if</span> (color.<span class="hljs-built_in">isValid</span>())&#123;<br>    plet.<span class="hljs-built_in">setColor</span> (QPalette::Button, color);<br>    line_info_[i].choose_color-&gt;<span class="hljs-built_in">setPalette</span> (plet);<br>    data_pool_[i].line_color = color;		<span class="hljs-comment">// 这句话好像可以删掉</span><br><br>    <span class="hljs-comment">// 改变图像属性</span><br>    QPen pen;<br>    pen.<span class="hljs-built_in">setWidth</span>(data_pool_.<span class="hljs-built_in">at</span>(i).line_width);<span class="hljs-comment">//设置线宽,默认是2</span><br>    pen.<span class="hljs-built_in">setColor</span>(data_pool_.<span class="hljs-built_in">at</span>(i).line_color);<span class="hljs-comment">//设置线条红色</span><br>    ui_chart_-&gt;widget-&gt;<span class="hljs-built_in">graph</span>(i)-&gt;<span class="hljs-built_in">setPen</span>(pen);<br><br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -313,9 +313,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/QT/" class="print-no-link">#QT</a>
-      
         <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/QT/" class="print-no-link">#QT</a>
       
     </div>
   
