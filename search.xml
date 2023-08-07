@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title>FFT资料</title>
+      <link href="/%E7%AB%9E%E8%B5%9B/2023/08/07/%E7%AB%9E%E8%B5%9B/FFT%E8%B5%84%E6%96%99/"/>
+      <url>/%E7%AB%9E%E8%B5%9B/2023/08/07/%E7%AB%9E%E8%B5%9B/FFT%E8%B5%84%E6%96%99/</url>
+      
+        <content type="html"><![CDATA[<p>资料</p><span id="more"></span><p><a href="https://blog.csdn.net/qq_42628795/article/details/95314989">基于STM32的FFT频谱分析+波形识别_stm32 绘制不同波形的频谱__鑫鑫鑫_的博客-CSDN博客</a></p><p><a href="https://www.cnblogs.com/liqiqi/p/14665058.html">几种比较经典的波形及其FFT变换（正弦波，三角波，方波和锯齿波） - 北纬三十度夏至 - 博客园 </a></p><p><a href="https://blog.csdn.net/XM_no_homework/article/details/90154929">时域转频域图</a></p><p><a href="https://blog.csdn.net/qq_34022877/article/details/123190943#comments_27638042">频谱分析</a></p><p><a href="https://www.cnblogs.com/jamesjiang/p/8986632.html">FIR滤波</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 竞赛 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/uncategorized/2023/08/07/deep%20learning/pytroch%E5%85%A5%E9%97%A8/"/>
+      <url>/uncategorized/2023/08/07/deep%20learning/pytroch%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Pytorch入门"><a href="#Pytorch入门" class="headerlink" title="Pytorch入门"></a>Pytorch入门</h1><h2 id="基本数据操作"><a href="#基本数据操作" class="headerlink" title="基本数据操作"></a>基本数据操作</h2><h3 id="构建矩阵"><a href="#构建矩阵" class="headerlink" title="构建矩阵"></a>构建矩阵</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>23国电总结</title>
       <link href="/%E6%AF%94%E8%B5%9B/2023/08/07/%E7%AB%9E%E8%B5%9B/23%E5%9B%BD%E7%94%B5%E6%80%BB%E7%BB%93/"/>
       <url>/%E6%AF%94%E8%B5%9B/2023/08/07/%E7%AB%9E%E8%B5%9B/23%E5%9B%BD%E7%94%B5%E6%80%BB%E7%BB%93/</url>
@@ -62,7 +94,7 @@
       <link href="/%E5%8D%95%E7%89%87%E6%9C%BA/2023/07/18/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%B9%8BADC-DMA/"/>
       <url>/%E5%8D%95%E7%89%87%E6%9C%BA/2023/07/18/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%B9%8BADC-DMA/</url>
       
-        <content type="html"><![CDATA[<span id="more"></span><h1 id="cubemx配置"><a href="#cubemx配置" class="headerlink" title="cubemx配置"></a>cubemx配置</h1><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307181644326.png" alt="image-20230718164408198"></p><p>Scan conversion mode  扫描转换模式</p><p>Continuous Conversion Mode  连续转换模式</p><p>DMA  Continuous Requests  DMA  连续请求</p><h1 id="分"><a href="#分" class="headerlink" title="分"></a>分</h1>]]></content>
+        <content type="html"><![CDATA[<span id="more"></span><h1 id="cubemx配置"><a href="#cubemx配置" class="headerlink" title="cubemx配置"></a>cubemx配置</h1><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202307181644326.png" alt="image-20230718164408198"></p><p>Scan conversion mode  扫描转换模式</p><p>Continuous Conversion Mode  连续转换模式</p><p>DMA  Continuous Requests  DMA  连续请求</p><p><a href="https://aijishu.com/a/1060000000312731#item-1">ADC++TIM+DMA</a></p><p><a href="https://blog.csdn.net/dongxiaodongvip/article/details/114498855">ADC</a></p><p><a href="https://blog.csdn.net/black0591/article/details/103187450">ADC相关计算</a></p><p><a href="%5Bstm32%E7%9A%84TIM%E5%AE%9A%E6%97%B6%E5%99%A8HAL%E5%BA%93%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8_hal_tim_base_start_mg_hover%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2%5D(https://blog.csdn.net/mg_hover/article/details/96834177)">TIM</a></p>]]></content>
       
       
       <categories>
