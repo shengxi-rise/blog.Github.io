@@ -16,16 +16,16 @@
   <meta name="author" content="YWM">
   <meta name="keywords" content="">
   
-    <meta name="description" content="定义神经网络1234567891011121314151617181920212223242526272829303132import torchimport torch.nn as nnimport torch.nn.functional as Fclass Net(nn.Module): def __init__(self):     super(Net, self).__init__(">
+    <meta name="description" content="定义一个模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch基础">
 <meta property="og:url" content="https://blog.xsaistudio.cn/Deep-learning/2023/08/07/deep%20learning/pytorch%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="定义神经网络1234567891011121314151617181920212223242526272829303132import torchimport torch.nn as nnimport torch.nn.functional as Fclass Net(nn.Module): def __init__(self):     super(Net, self).__init__(">
+<meta property="og:description" content="定义一个模型">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202308081515948.png">
 <meta property="article:published_time" content="2023-08-07T12:10:45.000Z">
-<meta property="article:modified_time" content="2023-08-11T07:25:11.381Z">
+<meta property="article:modified_time" content="2023-10-01T14:38:42.078Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="deep learning">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +251,8 @@
             
               <div class="markdown-body">
                 
-                <span id="more"></span>
+                <p>定义一个模型</p>
+<span id="more"></span>
 
 <p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202308081515948.png" srcset="/img/loading.gif" lazyload alt="image-20230808151532902"></p>
 <h1 id="定义神经网络"><a href="#定义神经网络" class="headerlink" title="定义神经网络"></a>定义神经网络</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Net</span>(nn.Module):<br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>     <span class="hljs-built_in">super</span>(Net, self).__init__()<br>     <span class="hljs-comment"># 1 input image channel, 6 output channels, 5x5 square convolution</span><br>     <span class="hljs-comment"># kernel</span><br>     self.conv1 = nn.Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>)<br>     self.conv2 = nn.Conv2d(<span class="hljs-number">6</span>, <span class="hljs-number">16</span>, <span class="hljs-number">5</span>)<br>     <span class="hljs-comment"># an affine operation: y = Wx + b</span><br>     self.fc1 = nn.Linear(<span class="hljs-number">16</span> * <span class="hljs-number">5</span> * <span class="hljs-number">5</span>, <span class="hljs-number">120</span>)<br>     self.fc2 = nn.Linear(<span class="hljs-number">120</span>, <span class="hljs-number">84</span>)<br>     self.fc3 = nn.Linear(<span class="hljs-number">84</span>, <span class="hljs-number">10</span>)<br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>     <span class="hljs-comment"># Max pooling over a (2, 2) window</span><br>     x = F.max_pool2d(F.relu(self.conv1(x)), (<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))<br>     <span class="hljs-comment"># If the size is a square you can only specify a single number</span><br>     x = F.max_pool2d(F.relu(self.conv2(x)), <span class="hljs-number">2</span>)<br>     x = x.view(-<span class="hljs-number">1</span>, self.num_flat_features(x))<br>     x = F.relu(self.fc1(x))<br>     x = F.relu(self.fc2(x))<br>     x = self.fc3(x)<br>     <span class="hljs-keyword">return</span> x<br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">num_flat_features</span>(<span class="hljs-params">self, x</span>):<br>     size = x.size()[<span class="hljs-number">1</span>:] <span class="hljs-comment"># all dimensions except the batch dimension</span><br>     num_features = <span class="hljs-number">1</span><br>     <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> size:<br>     num_features *= s<br>     <span class="hljs-keyword">return</span> num_features<br>net = Net()<br><span class="hljs-built_in">print</span>(net)<br></code></pre></td></tr></table></figure>
