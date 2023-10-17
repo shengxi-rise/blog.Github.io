@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>23工训</title>
+      <link href="/%E7%AB%9E%E8%B5%9B/2023/10/17/%E7%AB%9E%E8%B5%9B/23%E5%B7%A5%E8%AE%AD/"/>
+      <url>/%E7%AB%9E%E8%B5%9B/2023/10/17/%E7%AB%9E%E8%B5%9B/23%E5%B7%A5%E8%AE%AD/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+      
+      
+      <categories>
+          
+          <category> 竞赛 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工训 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>paddle</title>
+      <link href="/Deep-learning/2023/10/16/deep%20learning/paddle/"/>
+      <url>/Deep-learning/2023/10/16/deep%20learning/paddle/</url>
+      
+        <content type="html"><![CDATA[<p>基本是工训备赛过程中，使用到Paddle框架的例子</p><span id="more"></span><h1 id="Paddle安装"><a href="#Paddle安装" class="headerlink" title="Paddle安装"></a>Paddle安装</h1><ul><li><a href="https://paddleinference.paddlepaddle.org.cn/user_guides/download_lib.html#windows">离线安装链接</a></li><li><a href="https://github.com/PaddlePaddle">仓库</a></li></ul><h2 align=center style=color:yellow>记得安装cuda，还有cudnn，以及版本要对应上</h2><h1 id="PaddleYOLO使用方法"><a href="#PaddleYOLO使用方法" class="headerlink" title="PaddleYOLO使用方法"></a><a href="https://github.com/PaddlePaddle/PaddleYOLO">PaddleYOLO</a>使用方法</h1><h2 id="训练自己的数据集-官方教程"><a href="#训练自己的数据集-官方教程" class="headerlink" title="训练自己的数据集 官方教程"></a>训练自己的数据集 <a href="https://github.com/PaddlePaddle/PaddleYOLO/issues/43">官方教程</a></h2><h3 id="数据集标注"><a href="#数据集标注" class="headerlink" title="数据集标注"></a>数据集标注</h3><ul><li>看清楚模型训练的数据集格式以及对应的配置文件</li><li>VOC或者是COCO格式等等</li><li><a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/docs/tutorials/PrepareDataSet.md">准备</a></li></ul><p>标注软件：<a href="https://pypi.org/project/labelImg/1.4.0/">labelimg</a></p><h3 align=center style=color:yellow>修改对应的配置文件</h3><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310171950453.png" alt="image-20231017195049381"></p><h3 id="配置文件-配置"><a href="#配置文件-配置" class="headerlink" title="配置文件 配置"></a>配置文件 <a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/docs/tutorials/config_annotation/ppyolo_r50vd_dcn_1x_coco_annotation.md">配置</a></h3><p><a href="https://blog.csdn.net/qq_44703886/article/details/118667944">相关文件</a></p><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310171947769.png" alt="image-20231017194747641"></p><h1 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h1><p>详细的命令参数去官网上看</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">训练</span><br>python tools/train.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --eval --use_vdl=true --vdl_log_dir=vdl_dir/garbage_tenth<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Paddle继续训练，加个参数 -r</span><br>python tools/train.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --eval --use_vdl=true --vdl_log_dir=vdl_dir/garbage_tenth -r D:/19693/Desktop/DeepLearning/PaddleYOLO/output/10_12/29.pdparams<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">推理</span><br>python tools/infer.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --infer_img=&quot;D:/19693/Desktop/grabage_data/grabage_4cls_3/images/img1.jpg&quot; -o weights=&quot;D:/19693/Desktop/DeepLearning/PaddleYOLO/output/yolov3_darknet53_270e_voc/best_model.pdparams&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">模型评估</span><br>python tools/eval.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml -o weights=&quot;D:/19693/Desktop/DeepLearning/PaddleYOLO/output/100_yolov3_darknet53_270e_voc/model_final.pdparams&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">可视化</span><br>visualdl --logdir vdl_dir/garbage_eigth<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">导出模型</span><br>python tools/export_model.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --output_dir=./inference_model/10_14 -o weights=&quot;D:/WebDownload/49.pdparams&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 部署检测 摄像头</span></span><br>python deploy/python/infer.py --model_dir=&quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\inference_model\10_14\yolov3_darknet53_270e_voc&quot; --camera_id=1 --device=GPU<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">部署推理</span><br>python deploy/python/infer.py --model_dir=&quot;D:/19693/Desktop/DeepLearning/PaddleYOLO/inference_model/82.7_yolov3_darknet53_270e_voc&quot; --image_dir=&quot;D:/19693/Desktop/grabage_data/4_cls/valid&quot; --device=GPU --output_dir=output/valid<br><br></code></pre></td></tr></table></figure><h1 id="训练错误"><a href="#训练错误" class="headerlink" title="训练错误"></a>训练错误</h1><h3 id="CUDA-700"><a href="#CUDA-700" class="headerlink" title="CUDA[700]"></a>CUDA[700]</h3><blockquote><p>目前怀疑是版本装错了</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">OSError: (External) CUDA error(700), an illegal memory access was encountered.<br>  [Hint: Please search for the error code(700) on website (https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html#group__CUDART__TYPES_1g3f51e3575c2178246db0a94a430e0038) to get Nvidia&#x27;s official solution and advice about CUDA Error.] (at ../paddle/phi/backends/gpu/cuda/cuda_info.cc:259)<br></code></pre></td></tr></table></figure><h3 id="opencv-错误"><a href="#opencv-错误" class="headerlink" title="opencv 错误"></a>opencv 错误</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell">[09/15 08:14:44] reader WARNING: fail to map batch transform [BatchRandomResize_cf5b10] with error: OpenCV(4.5.5) :-1: error: (-5:Bad argument) in function &#x27;resize&#x27;<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Overload resolution failed:</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Conversion error: src</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Expected Ptr&lt;cv::UMat&gt; <span class="hljs-keyword">for</span> argument <span class="hljs-string">&#x27;src&#x27;</span></span><br> and stack:<br>Traceback (most recent call last):<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\reader.py&quot;, line 78, in __call__<br>    data = f(data)<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\batch_operators.py&quot;, line 155, in __call__<br>    return resizer(samples, context=context)<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\operators.py&quot;, line 102, in __call__<br>    sample[i] = self.apply(sample[i], context)<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\operators.py&quot;, line 1298, in apply<br>    im = self.apply_image(sample[&#x27;image&#x27;], [im_scale_x, im_scale_y])<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\operators.py&quot;, line 1195, in apply_image<br>    return cv2.resize(<br>cv2.error: OpenCV(4.5.5) :-1: error: (-5:Bad argument) in function &#x27;resize&#x27;<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Overload resolution failed:</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Conversion error: src</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Expected Ptr&lt;cv::UMat&gt; <span class="hljs-keyword">for</span> argument <span class="hljs-string">&#x27;src&#x27;</span></span><br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Deep learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> deep learning </tag>
+            
+            <tag> 工训 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大一总结</title>
       <link href="/uncategorized/2023/08/20/%E5%85%B6%E5%AE%83/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/"/>
       <url>/uncategorized/2023/08/20/%E5%85%B6%E5%AE%83/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
@@ -132,6 +184,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 国电 </tag>
+            
+        </tags>
       
     </entry>
     

@@ -16,21 +16,26 @@
   <meta name="author" content="YWM">
   <meta name="keywords" content="">
   
-    <meta name="description" content="拖">
+    <meta name="description" content="基本是工训备赛过程中，使用到Paddle框架的例子">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大一总结">
-<meta property="og:url" content="https://blog.xsaistudio.cn/uncategorized/2023/08/20/%E5%85%B6%E5%AE%83/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="paddle">
+<meta property="og:url" content="https://blog.xsaistudio.cn/Deep-learning/2023/10/16/deep%20learning/paddle/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="拖">
+<meta property="og:description" content="基本是工训备赛过程中，使用到Paddle框架的例子">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-20T15:35:10.000Z">
-<meta property="article:modified_time" content="2023-10-01T14:37:47.378Z">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310171950453.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310171947769.png">
+<meta property="article:published_time" content="2023-10-16T14:31:04.000Z">
+<meta property="article:modified_time" content="2023-10-17T13:40:08.675Z">
 <meta property="article:author" content="YWM">
+<meta property="article:tag" content="deep learning">
+<meta property="article:tag" content="工训">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310171950453.png">
   
   
   
-  <title>大一总结 - YWM&#39;S BLOG</title>
+  <title>paddle - YWM&#39;S BLOG</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -172,7 +177,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="大一总结"></span>
+            <span id="subtitle" data-typed-text="paddle"></span>
           
         </div>
 
@@ -183,8 +188,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-20 23:35" pubdate>
-          2023年8月20日 晚上
+        <time datetime="2023-10-16 22:31" pubdate>
+          2023年10月16日 晚上
         </time>
       </span>
     
@@ -195,7 +200,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1 字
+          3.3k 字
         
       </span>
     
@@ -206,7 +211,7 @@
         
         
         
-          1 分钟
+          28 分钟
         
       </span>
     
@@ -243,13 +248,47 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">大一总结</h1>
+            <h1 id="seo-header">paddle</h1>
             
             
               <div class="markdown-body">
                 
-                <p>拖</p>
+                <p>基本是工训备赛过程中，使用到Paddle框架的例子</p>
 <span id="more"></span>
+
+<h1 id="Paddle安装"><a href="#Paddle安装" class="headerlink" title="Paddle安装"></a>Paddle安装</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://paddleinference.paddlepaddle.org.cn/user_guides/download_lib.html#windows">离线安装链接</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle">仓库</a></li>
+</ul>
+<h2 align=center style=color:yellow>记得安装cuda，还有cudnn，以及版本要对应上</h2>
+
+<h1 id="PaddleYOLO使用方法"><a href="#PaddleYOLO使用方法" class="headerlink" title="PaddleYOLO使用方法"></a><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleYOLO">PaddleYOLO</a>使用方法</h1><h2 id="训练自己的数据集-官方教程"><a href="#训练自己的数据集-官方教程" class="headerlink" title="训练自己的数据集 官方教程"></a>训练自己的数据集 <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleYOLO/issues/43">官方教程</a></h2><h3 id="数据集标注"><a href="#数据集标注" class="headerlink" title="数据集标注"></a>数据集标注</h3><ul>
+<li>看清楚模型训练的数据集格式以及对应的配置文件</li>
+<li>VOC或者是COCO格式等等</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/docs/tutorials/PrepareDataSet.md">准备</a></li>
+</ul>
+<p>标注软件：<a target="_blank" rel="noopener" href="https://pypi.org/project/labelImg/1.4.0/">labelimg</a></p>
+<h3 align=center style=color:yellow>修改对应的配置文件</h3>
+
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310171950453.png" srcset="/img/loading.gif" lazyload alt="image-20231017195049381"></p>
+<h3 id="配置文件-配置"><a href="#配置文件-配置" class="headerlink" title="配置文件 配置"></a>配置文件 <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/docs/tutorials/config_annotation/ppyolo_r50vd_dcn_1x_coco_annotation.md">配置</a></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44703886/article/details/118667944">相关文件</a></p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310171947769.png" srcset="/img/loading.gif" lazyload alt="image-20231017194747641"></p>
+<h1 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h1><p>详细的命令参数去官网上看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">训练</span><br>python tools/train.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --eval --use_vdl=true --vdl_log_dir=vdl_dir/garbage_tenth<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Paddle继续训练，加个参数 -r</span><br>python tools/train.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --eval --use_vdl=true --vdl_log_dir=vdl_dir/garbage_tenth -r D:/19693/Desktop/DeepLearning/PaddleYOLO/output/10_12/29.pdparams<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">推理</span><br>python tools/infer.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --infer_img=&quot;D:/19693/Desktop/grabage_data/grabage_4cls_3/images/img1.jpg&quot; -o weights=&quot;D:/19693/Desktop/DeepLearning/PaddleYOLO/output/yolov3_darknet53_270e_voc/best_model.pdparams&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">模型评估</span><br>python tools/eval.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml -o weights=&quot;D:/19693/Desktop/DeepLearning/PaddleYOLO/output/100_yolov3_darknet53_270e_voc/model_final.pdparams&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">可视化</span><br>visualdl --logdir vdl_dir/garbage_eigth<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">导出模型</span><br>python tools/export_model.py -c configs/yolov3/yolov3_darknet53_270e_voc.yml --output_dir=./inference_model/10_14 -o weights=&quot;D:/WebDownload/49.pdparams&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 部署检测 摄像头</span></span><br>python deploy/python/infer.py --model_dir=&quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\inference_model\10_14\yolov3_darknet53_270e_voc&quot; --camera_id=1 --device=GPU<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">部署推理</span><br>python deploy/python/infer.py --model_dir=&quot;D:/19693/Desktop/DeepLearning/PaddleYOLO/inference_model/82.7_yolov3_darknet53_270e_voc&quot; --image_dir=&quot;D:/19693/Desktop/grabage_data/4_cls/valid&quot; --device=GPU --output_dir=output/valid<br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="训练错误"><a href="#训练错误" class="headerlink" title="训练错误"></a>训练错误</h1><h3 id="CUDA-700"><a href="#CUDA-700" class="headerlink" title="CUDA[700]"></a>CUDA[700]</h3><blockquote>
+<p>目前怀疑是版本装错了</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">OSError: (External) CUDA error(700), an illegal memory access was encountered.<br>  [Hint: Please search for the error code(700) on website (https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html#group__CUDART__TYPES_1g3f51e3575c2178246db0a94a430e0038) to get Nvidia&#x27;s official solution and advice about CUDA Error.] (at ../paddle/phi/backends/gpu/cuda/cuda_info.cc:259)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="opencv-错误"><a href="#opencv-错误" class="headerlink" title="opencv 错误"></a>opencv 错误</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell">[09/15 08:14:44] reader WARNING: fail to map batch transform [BatchRandomResize_cf5b10] with error: OpenCV(4.5.5) :-1: error: (-5:Bad argument) in function &#x27;resize&#x27;<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Overload resolution failed:</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Conversion error: src</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Expected Ptr&lt;cv::UMat&gt; <span class="hljs-keyword">for</span> argument <span class="hljs-string">&#x27;src&#x27;</span></span><br> and stack:<br>Traceback (most recent call last):<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\reader.py&quot;, line 78, in __call__<br>    data = f(data)<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\batch_operators.py&quot;, line 155, in __call__<br>    return resizer(samples, context=context)<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\operators.py&quot;, line 102, in __call__<br>    sample[i] = self.apply(sample[i], context)<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\operators.py&quot;, line 1298, in apply<br>    im = self.apply_image(sample[&#x27;image&#x27;], [im_scale_x, im_scale_y])<br>  File &quot;D:\19693\Desktop\DeepLearning\PaddleYOLO\ppdet\data\transform\operators.py&quot;, line 1195, in apply_image<br>    return cv2.resize(<br>cv2.error: OpenCV(4.5.5) :-1: error: (-5:Bad argument) in function &#x27;resize&#x27;<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Overload resolution failed:</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Conversion error: src</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> - Expected Ptr&lt;cv::UMat&gt; <span class="hljs-keyword">for</span> argument <span class="hljs-string">&#x27;src&#x27;</span></span><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -258,6 +297,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Deep-learning/" class="category-chain-item">Deep learning</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/deep-learning/" class="print-no-link">#deep learning</a>
+      
+        <a href="/tags/%E5%B7%A5%E8%AE%AD/" class="print-no-link">#工训</a>
+      
+    </div>
   
 </div>
 
@@ -267,8 +336,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>大一总结</div>
-      <div>https://blog.xsaistudio.cn/uncategorized/2023/08/20/其它/大一总结/</div>
+      <div>paddle</div>
+      <div>https://blog.xsaistudio.cn/Deep-learning/2023/10/16/deep learning/paddle/</div>
     </div>
     <div class="license-meta">
       
@@ -280,7 +349,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年8月20日</div>
+          <div>2023年10月16日</div>
         </div>
       
       
@@ -312,9 +381,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Deep-learning/2023/10/16/deep%20learning/paddle/" title="paddle">
+                      <a href="/%E7%AB%9E%E8%B5%9B/2023/10/17/%E7%AB%9E%E8%B5%9B/23%E5%B7%A5%E8%AE%AD/" title="23工训">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">paddle</span>
+                        <span class="hidden-mobile">23工训</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -322,8 +391,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Qt/2023/08/10/Qt/Clion%E7%BC%96%E8%AF%91Qt%E7%A8%8B%E5%BA%8F%E5%B8%A6%E5%9B%BE%E6%A0%87/" title="Clion编译Qt程序带图标">
-                        <span class="hidden-mobile">Clion编译Qt程序带图标</span>
+                      <a href="/uncategorized/2023/08/20/%E5%85%B6%E5%AE%83/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/" title="大一总结">
+                        <span class="hidden-mobile">大一总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
