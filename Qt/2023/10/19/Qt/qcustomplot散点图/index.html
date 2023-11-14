@@ -16,20 +16,24 @@
   <meta name="author" content="YWM">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="23工训">
-<meta property="og:url" content="https://blog.xsaistudio.cn/%E7%AB%9E%E8%B5%9B/2023/10/17/%E7%AB%9E%E8%B5%9B/23%E5%B7%A5%E8%AE%AD/index.html">
+    <meta name="description" content="散点图1234567&#x2F;&#x2F; 只写了主要部分代码QVector&lt;double&gt; latVector, lonVector;latVector &lt;&lt; -75 &lt;&lt; -50 &lt;&lt; -50 &lt;&lt; 0 &lt;&lt; 50 &lt;&lt; 100 &lt;&lt; 75;lonVector &lt;&lt; -75 &lt;&lt; -5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qcustomplot散点图">
+<meta property="og:url" content="https://blog.xsaistudio.cn/Qt/2023/10/19/Qt/qcustomplot%E6%95%A3%E7%82%B9%E5%9B%BE/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="散点图1234567&#x2F;&#x2F; 只写了主要部分代码QVector&lt;double&gt; latVector, lonVector;latVector &lt;&lt; -75 &lt;&lt; -50 &lt;&lt; -50 &lt;&lt; 0 &lt;&lt; 50 &lt;&lt; 100 &lt;&lt; 75;lonVector &lt;&lt; -75 &lt;&lt; -5">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-17T08:55:00.000Z">
-<meta property="article:modified_time" content="2023-10-17T13:40:46.880Z">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310191643878.png">
+<meta property="article:published_time" content="2023-10-19T08:38:16.000Z">
+<meta property="article:modified_time" content="2023-10-19T09:34:45.073Z">
 <meta property="article:author" content="YWM">
-<meta property="article:tag" content="工训">
+<meta property="article:tag" content="Qcustomplot">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310191643878.png">
   
   
   
-  <title>23工训 - YWM&#39;S BLOG</title>
+  <title>qcustomplot散点图 - YWM&#39;S BLOG</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -171,7 +175,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="23工训"></span>
+            <span id="subtitle" data-typed-text="qcustomplot散点图"></span>
           
         </div>
 
@@ -182,8 +186,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-17 16:55" pubdate>
-          2023年10月17日 下午
+        <time datetime="2023-10-19 16:38" pubdate>
+          2023年10月19日 下午
         </time>
       </span>
     
@@ -194,7 +198,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          419 字
         
       </span>
     
@@ -205,7 +209,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -242,12 +246,22 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">23工训</h1>
+            <h1 id="seo-header">qcustomplot散点图</h1>
             
             
               <div class="markdown-body">
                 
                 <span id="more"></span>
+
+
+
+<h1 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 只写了主要部分代码</span><br>QVector&lt;<span class="hljs-type">double</span>&gt; latVector, lonVector;<br>latVector &lt;&lt; <span class="hljs-number">-75</span> &lt;&lt; <span class="hljs-number">-50</span> &lt;&lt; <span class="hljs-number">-50</span> &lt;&lt; <span class="hljs-number">0</span> &lt;&lt; <span class="hljs-number">50</span> &lt;&lt; <span class="hljs-number">100</span> &lt;&lt; <span class="hljs-number">75</span>;<br>lonVector &lt;&lt; <span class="hljs-number">-75</span> &lt;&lt; <span class="hljs-number">-50</span> &lt;&lt; <span class="hljs-number">-25</span> &lt;&lt; <span class="hljs-number">0</span> &lt;&lt; <span class="hljs-number">25</span> &lt;&lt; <span class="hljs-number">50</span> &lt;&lt; <span class="hljs-number">75</span>;<br>curGraph-&gt;<span class="hljs-built_in">setLineStyle</span>(QCPGraph::lsNone);<br>curGraph-&gt;<span class="hljs-built_in">setScatterStyle</span>(<span class="hljs-built_in">QCPScatterStyle</span>(QCPScatterStyle::ssCircle, <span class="hljs-number">2</span>));<br>curGraph-&gt;<span class="hljs-built_in">setData</span>(latVector, lonVector);<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="QCPScatterStyle函数"><a href="#QCPScatterStyle函数" class="headerlink" title="QCPScatterStyle函数"></a><a target="_blank" rel="noopener" href="https://www.qcustomplot.com/documentation/classQCPScatterStyle.html">QCPScatterStyle</a>函数</h2><p>线的形状</p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202310191643878.png" srcset="/img/loading.gif" lazyload alt="image-20231019164311830"></p>
+<p>一秒一千行float</p>
 
                 
               </div>
@@ -266,7 +280,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="category-chain-item">竞赛</a>
+  <a href="/categories/Qt/" class="category-chain-item">Qt</a>
   
   
 
@@ -281,7 +295,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B7%A5%E8%AE%AD/" class="print-no-link">#工训</a>
+        <a href="/tags/Qcustomplot/" class="print-no-link">#Qcustomplot</a>
       
     </div>
   
@@ -293,8 +307,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>23工训</div>
-      <div>https://blog.xsaistudio.cn/竞赛/2023/10/17/竞赛/23工训/</div>
+      <div>qcustomplot散点图</div>
+      <div>https://blog.xsaistudio.cn/Qt/2023/10/19/Qt/qcustomplot散点图/</div>
     </div>
     <div class="license-meta">
       
@@ -306,7 +320,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月17日</div>
+          <div>2023年10月19日</div>
         </div>
       
       
@@ -338,9 +352,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Qt/2023/10/19/Qt/qcustomplot%E6%95%A3%E7%82%B9%E5%9B%BE/" title="qcustomplot散点图">
+                      <a href="/Qt/2023/10/28/Qt/Clion%E6%89%93%E5%8C%85Qt%E7%A8%8B%E5%BA%8F/" title="Clion打包Qt程序">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">qcustomplot散点图</span>
+                        <span class="hidden-mobile">Clion打包Qt程序</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -348,8 +362,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Deep-learning/2023/10/16/deep%20learning/paddle/" title="paddle">
-                        <span class="hidden-mobile">paddle</span>
+                      <a href="/%E7%AB%9E%E8%B5%9B/2023/10/17/%E7%AB%9E%E8%B5%9B/23%E5%B7%A5%E8%AE%AD/" title="23工训">
+                        <span class="hidden-mobile">23工训</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

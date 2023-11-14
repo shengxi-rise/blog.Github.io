@@ -16,20 +16,27 @@
   <meta name="author" content="YWM">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="23工训">
-<meta property="og:url" content="https://blog.xsaistudio.cn/%E7%AB%9E%E8%B5%9B/2023/10/17/%E7%AB%9E%E8%B5%9B/23%E5%B7%A5%E8%AE%AD/index.html">
+    <meta name="description" content="stm32时钟树原理及其配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stm32时钟树">
+<meta property="og:url" content="https://blog.xsaistudio.cn/%E5%8D%95%E7%89%87%E6%9C%BA/2023/11/13/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E6%97%B6%E9%92%9F%E6%A0%91/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="stm32时钟树原理及其配置">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-17T08:55:00.000Z">
-<meta property="article:modified_time" content="2023-10-17T13:40:46.880Z">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311132057012.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311141938590.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311141948350.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311141948177.png">
+<meta property="article:published_time" content="2023-11-13T12:54:55.000Z">
+<meta property="article:modified_time" content="2023-11-14T11:51:34.253Z">
 <meta property="article:author" content="YWM">
-<meta property="article:tag" content="工训">
+<meta property="article:tag" content="STM32">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311132057012.png">
   
   
   
-  <title>23工训 - YWM&#39;S BLOG</title>
+  <title>stm32时钟树 - YWM&#39;S BLOG</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -171,7 +178,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="23工训"></span>
+            <span id="subtitle" data-typed-text="stm32时钟树"></span>
           
         </div>
 
@@ -182,8 +189,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-17 16:55" pubdate>
-          2023年10月17日 下午
+        <time datetime="2023-11-13 20:54" pubdate>
+          2023年11月13日 晚上
         </time>
       </span>
     
@@ -194,7 +201,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          277 字
         
       </span>
     
@@ -205,7 +212,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -242,12 +249,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">23工训</h1>
+            <h1 id="seo-header">stm32时钟树</h1>
             
             
               <div class="markdown-body">
                 
-                <span id="more"></span>
+                <p>stm32时钟树原理及其配置</p>
+<span id="more"></span>
+
+<h1 id="时钟树框图"><a href="#时钟树框图" class="headerlink" title="时钟树框图"></a>时钟树框图</h1><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311132057012.png" srcset="/img/loading.gif" lazyload alt="image-20231113205747796"></p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311141938590.png" srcset="/img/loading.gif" lazyload alt="image-20231114193841379"></p>
+<h1 id="APB1挂载的外设"><a href="#APB1挂载的外设" class="headerlink" title="APB1挂载的外设"></a>APB1挂载的外设</h1><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311141948350.png" srcset="/img/loading.gif" lazyload alt="image-20231114194819322"></p>
+<h1 id="APB2挂载的外设"><a href="#APB2挂载的外设" class="headerlink" title="APB2挂载的外设"></a>APB2挂载的外设</h1><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311141948177.png" srcset="/img/loading.gif" lazyload alt="image-20231114194857154"></p>
+<h1 id="考资料"><a href="#考资料" class="headerlink" title="考资料"></a>考资料</h1><p>【【STM32入门教程-2023】第15集 超清晰STM32时钟树动画讲解】<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ph4y1e7Ey?vd_source=30491b32ea960f887e8dedd6d8fdf7ee">https://www.bilibili.com/video/BV1ph4y1e7Ey?vd_source=30491b32ea960f887e8dedd6d8fdf7ee</a></p>
+<p>【看完这个3分多钟的视频，带你快速掌握STM32时钟树】<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1eN41117dC?vd_source=30491b32ea960f887e8dedd6d8fdf7ee">https://www.bilibili.com/video/BV1eN41117dC?vd_source=30491b32ea960f887e8dedd6d8fdf7ee</a></p>
 
                 
               </div>
@@ -266,7 +281,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="category-chain-item">竞赛</a>
+  <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" class="category-chain-item">单片机</a>
   
   
 
@@ -281,7 +296,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B7%A5%E8%AE%AD/" class="print-no-link">#工训</a>
+        <a href="/tags/STM32/" class="print-no-link">#STM32</a>
       
     </div>
   
@@ -293,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>23工训</div>
-      <div>https://blog.xsaistudio.cn/竞赛/2023/10/17/竞赛/23工训/</div>
+      <div>stm32时钟树</div>
+      <div>https://blog.xsaistudio.cn/单片机/2023/11/13/单片机/stm32时钟树/</div>
     </div>
     <div class="license-meta">
       
@@ -306,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月17日</div>
+          <div>2023年11月13日</div>
         </div>
       
       
@@ -338,18 +353,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Qt/2023/10/19/Qt/qcustomplot%E6%95%A3%E7%82%B9%E5%9B%BE/" title="qcustomplot散点图">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">qcustomplot散点图</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Deep-learning/2023/10/16/deep%20learning/paddle/" title="paddle">
-                        <span class="hidden-mobile">paddle</span>
+                      <a href="/Qt/2023/10/28/Qt/Clion%E6%89%93%E5%8C%85Qt%E7%A8%8B%E5%BA%8F/" title="Clion打包Qt程序">
+                        <span class="hidden-mobile">Clion打包Qt程序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
