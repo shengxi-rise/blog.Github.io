@@ -18,15 +18,18 @@
   
     <meta name="description" content="git 的基本操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git高阶用法">
+<meta property="og:title" content="git快速入门">
 <meta property="og:url" content="https://blog.xsaistudio.cn/Git/2023/03/06/%E5%85%B6%E5%AE%83/git%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
 <meta property="og:description" content="git 的基本操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311291654639.png">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311291656316.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311301608363.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311301609484.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311301548510.png">
 <meta property="article:published_time" content="2023-03-06T13:15:51.000Z">
-<meta property="article:modified_time" content="2023-11-29T09:05:59.239Z">
+<meta property="article:modified_time" content="2023-11-30T12:55:13.373Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
@@ -34,7 +37,7 @@
   
   
   
-  <title>git高阶用法 - YWM&#39;S BLOG</title>
+  <title>git快速入门 - YWM&#39;S BLOG</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -176,7 +179,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="git高阶用法"></span>
+            <span id="subtitle" data-typed-text="git快速入门"></span>
           
         </div>
 
@@ -199,7 +202,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          3.2k 字
         
       </span>
     
@@ -210,7 +213,7 @@
         
         
         
-          22 分钟
+          28 分钟
         
       </span>
     
@@ -247,7 +250,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">git高阶用法</h1>
+            <h1 id="seo-header">git快速入门</h1>
             
             
               <div class="markdown-body">
@@ -255,11 +258,31 @@
                 <p>git 的基本操作</p>
 <span id="more"></span>
 
+<h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><h2 id="git和gitee、github的区别"><a href="#git和gitee、github的区别" class="headerlink" title="git和gitee、github的区别"></a>git和gitee、github的区别</h2><ul>
+<li>git 是一种版本控制系统，是一个命令，是一种工具。</li>
+<li>github，gitee 是一个基于git实现在线代码托管的仓库。</li>
+</ul>
+<h2 id="为什么要学git"><a href="#为什么要学git" class="headerlink" title="为什么要学git"></a>为什么要学git</h2><p>学习 Git 具有多方面的好处，特别是对于开发者、团队合作以及版本控制方面。以下是一些学习 Git 的理由：</p>
+<ol>
+<li><p><strong>版本控制：</strong> Git 是一个分布式版本控制系统，它可以追踪文件的变化，帮助你记录项目的不同版本。这使得团队能够轻松协作，同时保留每个版本的快照，便于回滚到任意时间点。</p>
+</li>
+<li><p><strong>团队协作：</strong> 在团队开发中，多个开发者可能同时对代码进行修改。Git 提供了有效的分支管理，允许每个开发者在独立的分支上进行工作，并在完成后将其合并到主分支，从而避免了冲突和混乱。</p>
+</li>
+<li><p><strong>备份和恢复：</strong> Git 提供了对代码库的备份和还原机制。你可以在远程仓库中备份代码，以防止意外数据丢失。如果出现问题，可以使用 Git 的历史记录来还原到之前的状态。</p>
+</li>
+<li><p><strong>分布式开发：</strong> Git 是一种分布式版本控制系统，每个开发者都可以在本地拥有完整的代码库。这使得开发者可以在没有网络连接的情况下工作，并在需要时与远程仓库同步。</p>
+</li>
+<li><p><strong>工作流管理：</strong> Git 提供了强大的工作流管理工具，例如分支、合并、标签等。这些工具可以帮助你更有效地管理项目的发展和维护。</p>
+</li>
+<li><p><strong>技术面试：</strong> 在许多技术面试中，对于使用 Git 进行版本控制的基本知识是一个重要的技能。学习 Git 可以提高你在职业生涯中的竞争力。</p>
+</li>
+</ol>
 <h1 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h1><h2 id="连接github，gitee平台"><a href="#连接github，gitee平台" class="headerlink" title="连接github，gitee平台"></a>连接<a target="_blank" rel="noopener" href="https://github.com/">github</a>，<a target="_blank" rel="noopener" href="https://gitee.com/">gitee</a>平台</h2><ul>
 <li>先添加公钥到gitee&#x2F;github上面</li>
 <li>配置好自己本地的git config</li>
+<li></li>
 </ul>
-<h3 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;youremail@example.com&quot;</span></span><br></code></pre></td></tr></table></figure>
+<h3 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;<br></code></pre></td></tr></table></figure>
 
 <p>生成完之后，会显示文件路径，把 <em>id_rsa.pub</em> 的文件内容复制，添加到平台上即可</p>
 <h3 id="添加到gitee-x2F-github"><a href="#添加到gitee-x2F-github" class="headerlink" title="添加到gitee&#x2F;github"></a>添加到gitee&#x2F;github</h3><p>gitee</p>
@@ -273,11 +296,16 @@
 
 
 
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="一定要先配置用户信息"><a href="#一定要先配置用户信息" class="headerlink" title="一定要先配置用户信息 !!!"></a>一定要先配置用户信息 !!!</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global user.name <span class="hljs-string">&quot;ywm&quot;</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global user.email <span class="hljs-built_in">test</span>@example.com</span><br></code></pre></td></tr></table></figure>
+<h2 id="图解git工作区"><a href="#图解git工作区" class="headerlink" title="图解git工作区"></a>图解git工作区</h2><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311301608363.png" srcset="/img/loading.gif" lazyload alt="image-20231130160840316"></p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311301609484.png" srcset="/img/loading.gif" lazyload alt="image-20231130160939436"></p>
+<hr>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="一定要先配置用户信息"><a href="#一定要先配置用户信息" class="headerlink" title="一定要先配置用户信息 !!!"></a>一定要先配置用户信息 !!!</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git config --global user.name &quot;ywm&quot;<br>git config --global user.email test@example.com<br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell">git init<br>git remote add origin git@...<br>git branch -m master  #创建分支<br>git add *<br>git reset HEAD		# 取消add<br>git commit -m &quot;log&quot;<br>git push -u origin master<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">.gitignore修改之后，并没有生效</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">1. 在仓库上面的，不会忽略	2. 更改了gitignore之后没有清除缓存</span><br>git rm -r --cached .<br>git add .<br>git commit -m &#x27;&#x27;			# 不用这句也行，如果之前commit过了，用了好像也不执行<br>git push -u origin master<br></code></pre></td></tr></table></figure>
+<h3 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell">git init<br>git add .<br>git commit -m &quot;log&quot;<br>git branch -m master  #创建分支 -m 可以不用<br>git remote add origin git@...<br>git push -u origin master<br>git reset HEAD		# 取消add<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">.gitignore修改之后，并没有生效</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">1. 在仓库上面的，不会忽略	2. 更改了gitignore之后没有清除缓存</span><br>git rm -r --cached .<br>git add .<br>git commit -m &#x27;&#x27;			# 不用这句也行，如果之前commit过了，用了好像也不执行<br>git push -u origin master<br></code></pre></td></tr></table></figure>
+
+
 
 
 
@@ -395,6 +423,10 @@
 
 
 
+
+
+<h2 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h2><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202311301548510.png" srcset="/img/loading.gif" lazyload alt="image-20231130154823473"></p>
+<p>把其他东西删掉，留下想要的那部分就行。</p>
 <h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><blockquote>
 <p>工作到一半, 工作区还有东西, 同时还要改bug的情况</p>
 </blockquote>
@@ -410,6 +442,10 @@
 <h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><blockquote>
 <p> to be continued…</p>
 </blockquote>
+<h3 id="查看仓库分支树形图"><a href="#查看仓库分支树形图" class="headerlink" title="查看仓库分支树形图"></a>查看仓库分支树形图</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git log --oneline --graph --decorate --all<br></code></pre></td></tr></table></figure>
+
+
+
 <h1 id="加速访问"><a href="#加速访问" class="headerlink" title="加速访问"></a>加速访问</h1><ol>
 <li>steam++</li>
 <li>uu加速器</li>
@@ -466,7 +502,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>git高阶用法</div>
+      <div>git快速入门</div>
       <div>https://blog.xsaistudio.cn/Git/2023/03/06/其它/git快速入门/</div>
     </div>
     <div class="license-meta">
