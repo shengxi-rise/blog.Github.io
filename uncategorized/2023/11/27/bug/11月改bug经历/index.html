@@ -16,17 +16,17 @@
   <meta name="author" content="YWM">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ESP32下半周在ESP32上面写I2C。先是直接用了封装的函数，结果发现不行，然后直接手搓底层逻辑，实现了。最后对比封装函数，发现是地址参数写错了。 Stm32上半周在stm32上面写I2C， Qt新建的项目，在clion上打开，直接格式化导致分隔符错误  行分隔符的问题，将行分隔符改成windows就行了。 开发后续">
+    <meta name="description" content="踩坑记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="11月改bug经历">
 <meta property="og:url" content="https://blog.xsaistudio.cn/uncategorized/2023/11/27/bug/11%E6%9C%88%E6%94%B9bug%E7%BB%8F%E5%8E%86/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="ESP32下半周在ESP32上面写I2C。先是直接用了封装的函数，结果发现不行，然后直接手搓底层逻辑，实现了。最后对比封装函数，发现是地址参数写错了。 Stm32上半周在stm32上面写I2C， Qt新建的项目，在clion上打开，直接格式化导致分隔符错误  行分隔符的问题，将行分隔符改成windows就行了。 开发后续">
+<meta property="og:description" content="踩坑记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202312252308125.png">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202312252308649.png">
 <meta property="article:published_time" content="2023-11-27T10:03:12.000Z">
-<meta property="article:modified_time" content="2024-02-14T15:26:11.662Z">
+<meta property="article:modified_time" content="2024-02-14T15:33:24.933Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="bug">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          156 字
+          160 字
         
       </span>
     
@@ -252,7 +252,8 @@
             
               <div class="markdown-body">
                 
-                <span id="more"></span>
+                <p>踩坑记录</p>
+<span id="more"></span>
 
 <h1 id="ESP32"><a href="#ESP32" class="headerlink" title="ESP32"></a>ESP32</h1><p>下半周在ESP32上面写I2C。先是直接用了封装的函数，结果发现不行，然后直接手搓底层逻辑，实现了。最后对比封装函数，发现是地址参数写错了。</p>
 <h1 id="Stm32"><a href="#Stm32" class="headerlink" title="Stm32"></a>Stm32</h1><p>上半周在stm32上面写I2C，</p>

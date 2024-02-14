@@ -208,7 +208,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/Deep-learning/2024/02/03/deep%20learning/keras%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" target="_self">
         <div>
-          安装日记conda和pip问题同一个环境下，pip和conda同时安装一个软件包，会导致以下问题：👇  版本冲突: 两个 NumPy 版本可能不同，导致程序运行时出现错误。 依赖关系冲突: 两个 NumPy 可能依赖于不同的库版本，导致程序运行时出现错误。 环境污染: pip 和 conda 使用不同的包管理方式，混合使用可能会导致环境混乱。  所以：环境中不要两个混着使用，如果两个都安装了
+          keras
         </div>
       </a>
 
@@ -269,7 +269,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/%E5%8D%95%E7%89%87%E6%9C%BA/2024/01/17/%E5%8D%95%E7%89%87%E6%9C%BA/ESP8266%E6%B8%A9%E6%B9%BF%E5%BA%A6%E9%A1%B9%E7%9B%AE/" target="_self">
         <div>
-          知识总结学习一门东西时，先找到一个相关的最容易的东西先，然后类比​	ESP8266有例程但是官方文档的API介绍少，ESP32其实类似的，所以可以先开发ESP32，最后再类比到ESP8266即可。 关于ESP8266烧录地址Flash布局  不支持OTA  支持OTA  ESP8266智能配网​	智能配网有很多方法。直接拿例程的智能配网就行，把模式改成 SC_TYPE_ESPTOUCH_AIR
+          MQTT连接，开发踩坑
         </div>
       </a>
 
@@ -384,7 +384,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/uncategorized/2023/12/10/%E5%8D%95%E7%89%87%E6%9C%BA/ESP8266%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" target="_self">
         <div>
-          克隆1git clone --recursive https://github.com/espressif/ESP8266_RTOS_SDK.git    安装依赖最好就是独立创建一个python的虚拟环境来配置 1pip install --user -r 克隆下来的路径/requirements.txt    下载工具链下载好随便丢一个目录，后面的环境变量配置需要添加上去。  clion配
+          ESP8266与Clion开发环境配置
         </div>
       </a>
 
@@ -424,7 +424,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/uncategorized/2023/11/27/bug/11%E6%9C%88%E6%94%B9bug%E7%BB%8F%E5%8E%86/" target="_self">
         <div>
-          ESP32下半周在ESP32上面写I2C。先是直接用了封装的函数，结果发现不行，然后直接手搓底层逻辑，实现了。最后对比封装函数，发现是地址参数写错了。 Stm32上半周在stm32上面写I2C， Qt新建的项目，在clion上打开，直接格式化导致分隔符错误  行分隔符的问题，将行分隔符改成windows就行了。 开发后续
+          踩坑记录
         </div>
       </a>
 
@@ -497,7 +497,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/uncategorized/2023/11/25/%E5%8D%95%E7%89%87%E6%9C%BA/ESP32%E4%B9%8BI2C/" target="_self">
         <div>
-          IDF 5.1 驱动库是driver&#x2F;i2c.h  从底层原理来实现  封装好的函数不用按照上面的那些底层步骤，一步步地写，直接用封装好的函数就行了。 发送 接收 步骤 引脚配置  12345678910i2c_config_t conf = &#123;            .mode = I2C_MODE_MASTER,            .sda_io_num = AHT
+          ESP32之I2C坑
         </div>
       </a>
 
@@ -537,7 +537,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/uncategorized/2023/11/22/%E5%8D%95%E7%89%87%E6%9C%BA/HAL%E4%B9%8BI2C/" target="_self">
         <div>
-          Cubemx配置就一个步骤  基本函数HAL_I2C_Mem_Write HAL_I2C_Master_Transmit  参考资料 https://www.cxyzjd.com/article/weixin_52071377/126492793  https://www.cnblogs.com/hhmxf/p/16707197.html
+          HAL库I2C配置
         </div>
       </a>
 
@@ -551,6 +551,13 @@
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/STM32/">#STM32</a>
+            
+          </div>
         
       </div>
     </article>
@@ -570,7 +577,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/uncategorized/2023/11/20/%E5%8D%95%E7%89%87%E6%9C%BA/Stm32%E5%9B%BA%E4%BB%B6%E5%8D%87%E7%BA%A7/" target="_self">
         <div>
-          ISPISP（In-System Programming）在系统编程，使用引导程序（Bootloader）加上外围UART&#x2F;SPI等接口进行烧录。 ICPICP （In-circuit programmer）在电路编程，使用SWD&#x2F;JTAG接口。 IAPIAP（In-Application Programming）指MCU可以在系统中获取新代码并对自己重新编程，即用程序来改
+          固件升级的方式
         </div>
       </a>
 
@@ -584,6 +591,13 @@
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/STM32/">#STM32</a>
+            
+          </div>
         
       </div>
     </article>

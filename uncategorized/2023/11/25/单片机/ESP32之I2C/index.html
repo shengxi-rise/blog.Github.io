@@ -16,19 +16,19 @@
   <meta name="author" content="YWM">
   <meta name="keywords" content="">
   
-    <meta name="description" content="IDF 5.1 驱动库是driver&#x2F;i2c.h  从底层原理来实现  封装好的函数不用按照上面的那些底层步骤，一步步地写，直接用封装好的函数就行了。 发送 接收 步骤 引脚配置  12345678910i2c_config_t conf &#x3D; &amp;#123;            .mode &#x3D; I2C_MODE_MASTER,            .sda_io_num &#x3D; AHT">
+    <meta name="description" content="ESP32之I2C坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ESP32之I2C">
 <meta property="og:url" content="https://blog.xsaistudio.cn/uncategorized/2023/11/25/%E5%8D%95%E7%89%87%E6%9C%BA/ESP32%E4%B9%8BI2C/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="IDF 5.1 驱动库是driver&#x2F;i2c.h  从底层原理来实现  封装好的函数不用按照上面的那些底层步骤，一步步地写，直接用封装好的函数就行了。 发送 接收 步骤 引脚配置  12345678910i2c_config_t conf &#x3D; &amp;#123;            .mode &#x3D; I2C_MODE_MASTER,            .sda_io_num &#x3D; AHT">
+<meta property="og:description" content="ESP32之I2C坑">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202312031421364.png">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202312031421003.png">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202312031501961.png">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202312031501162.png">
 <meta property="article:published_time" content="2023-11-24T19:01:48.000Z">
-<meta property="article:modified_time" content="2024-02-14T15:25:25.618Z">
+<meta property="article:modified_time" content="2024-02-14T15:31:36.939Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="ESP32">
 <meta name="twitter:card" content="summary_large_image">
@@ -201,7 +201,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          462 字
+          472 字
         
       </span>
     
@@ -254,7 +254,8 @@
             
               <div class="markdown-body">
                 
-                <span id="more"></span>
+                <p>ESP32之I2C坑</p>
+<span id="more"></span>
 
 <h1 id="IDF-5-1"><a href="#IDF-5-1" class="headerlink" title="IDF 5.1"></a>IDF 5.1</h1><blockquote>
 <p>驱动库是driver&#x2F;i2c.h</p>

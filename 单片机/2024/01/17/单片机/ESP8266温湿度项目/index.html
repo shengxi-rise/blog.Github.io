@@ -16,12 +16,12 @@
   <meta name="author" content="YWM">
   <meta name="keywords" content="">
   
-    <meta name="description" content="知识总结学习一门东西时，先找到一个相关的最容易的东西先，然后类比​	ESP8266有例程但是官方文档的API介绍少，ESP32其实类似的，所以可以先开发ESP32，最后再类比到ESP8266即可。 关于ESP8266烧录地址Flash布局  不支持OTA  支持OTA  ESP8266智能配网​	智能配网有很多方法。直接拿例程的智能配网就行，把模式改成 SC_TYPE_ESPTOUCH_AIR">
+    <meta name="description" content="MQTT连接，开发踩坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ESP8266温湿度项目">
 <meta property="og:url" content="https://blog.xsaistudio.cn/%E5%8D%95%E7%89%87%E6%9C%BA/2024/01/17/%E5%8D%95%E7%89%87%E6%9C%BA/ESP8266%E6%B8%A9%E6%B9%BF%E5%BA%A6%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="YWM&#39;S BLOG">
-<meta property="og:description" content="知识总结学习一门东西时，先找到一个相关的最容易的东西先，然后类比​	ESP8266有例程但是官方文档的API介绍少，ESP32其实类似的，所以可以先开发ESP32，最后再类比到ESP8266即可。 关于ESP8266烧录地址Flash布局  不支持OTA  支持OTA  ESP8266智能配网​	智能配网有很多方法。直接拿例程的智能配网就行，把模式改成 SC_TYPE_ESPTOUCH_AIR">
+<meta property="og:description" content="MQTT连接，开发踩坑">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171325354.png">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171323634.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401191702543.png">
 <meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401201956600.png">
 <meta property="article:published_time" content="2024-01-17T04:50:12.000Z">
-<meta property="article:modified_time" content="2024-02-14T15:25:46.759Z">
+<meta property="article:modified_time" content="2024-02-14T15:31:24.744Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="ESP8266">
 <meta name="twitter:card" content="summary_large_image">
@@ -258,7 +258,8 @@
             
               <div class="markdown-body">
                 
-                <span id="more"></span>
+                <p>MQTT连接，开发踩坑</p>
+<span id="more"></span>
 
 <h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1><h2 id="学习一门东西时，先找到一个相关的最容易的东西先，然后类比"><a href="#学习一门东西时，先找到一个相关的最容易的东西先，然后类比" class="headerlink" title="学习一门东西时，先找到一个相关的最容易的东西先，然后类比"></a>学习一门东西时，先找到一个相关的最容易的东西先，然后类比</h2><p>​	ESP8266有例程但是官方文档的API介绍少，ESP32其实类似的，所以可以先开发ESP32，最后再类比到ESP8266即可。</p>
 <h2 id="关于ESP8266烧录地址"><a href="#关于ESP8266烧录地址" class="headerlink" title="关于ESP8266烧录地址"></a>关于ESP8266烧录地址</h2><p>Flash布局</p>
