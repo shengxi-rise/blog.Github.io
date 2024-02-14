@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="YWM">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="知识总结学习一门东西时，先找到一个相关的最容易的东西先，然后类比​	ESP8266有例程但是官方文档的API介绍少，ESP32其实类似的，所以可以先开发ESP32，最后再类比到ESP8266即可。 关于ESP8266烧录地址Flash布局  不支持OTA  支持OTA  ESP8266智能配网​	智能配网有很多方法。直接拿例程的智能配网就行，把模式改成 SC_TYPE_ESPTOUCH_AIR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESP8266温湿度项目">
+<meta property="og:url" content="https://blog.xsaistudio.cn/%E5%8D%95%E7%89%87%E6%9C%BA/2024/01/17/%E5%8D%95%E7%89%87%E6%9C%BA/ESP8266%E6%B8%A9%E6%B9%BF%E5%BA%A6%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="YWM&#39;S BLOG">
+<meta property="og:description" content="知识总结学习一门东西时，先找到一个相关的最容易的东西先，然后类比​	ESP8266有例程但是官方文档的API介绍少，ESP32其实类似的，所以可以先开发ESP32，最后再类比到ESP8266即可。 关于ESP8266烧录地址Flash布局  不支持OTA  支持OTA  ESP8266智能配网​	智能配网有很多方法。直接拿例程的智能配网就行，把模式改成 SC_TYPE_ESPTOUCH_AIR">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171325354.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171323634.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171323221.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171745766.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401221809210.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401191702053.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401191702543.png">
+<meta property="og:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401201956600.png">
+<meta property="article:published_time" content="2024-01-17T04:50:12.000Z">
+<meta property="article:modified_time" content="2024-02-14T15:25:46.759Z">
+<meta property="article:author" content="YWM">
+<meta property="article:tag" content="ESP8266">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171325354.png">
+  
+  
+  
+  <title>ESP8266温湿度项目 - YWM&#39;S BLOG</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.xsaistudio.cn","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>YWM&#39;S BLOG</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ESP8266温湿度项目"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-17 12:50" pubdate>
+          2024年1月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ESP8266温湿度项目</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
+
+<h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1><h2 id="学习一门东西时，先找到一个相关的最容易的东西先，然后类比"><a href="#学习一门东西时，先找到一个相关的最容易的东西先，然后类比" class="headerlink" title="学习一门东西时，先找到一个相关的最容易的东西先，然后类比"></a>学习一门东西时，先找到一个相关的最容易的东西先，然后类比</h2><p>​	ESP8266有例程但是官方文档的API介绍少，ESP32其实类似的，所以可以先开发ESP32，最后再类比到ESP8266即可。</p>
+<h2 id="关于ESP8266烧录地址"><a href="#关于ESP8266烧录地址" class="headerlink" title="关于ESP8266烧录地址"></a>关于ESP8266烧录地址</h2><p>Flash布局</p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171325354.png" srcset="/img/loading.gif" lazyload alt="image-20240117132521314"></p>
+<p>不支持OTA</p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171323634.png" srcset="/img/loading.gif" lazyload alt="image-20240117132304583"></p>
+<p>支持OTA</p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171323221.png" srcset="/img/loading.gif" lazyload alt="image-20240117132336171"></p>
+<h2 id="ESP8266智能配网"><a href="#ESP8266智能配网" class="headerlink" title="ESP8266智能配网"></a>ESP8266智能配网</h2><p>​	智能配网有很多方法。直接拿例程的智能配网就行，把模式改成 SC_TYPE_ESPTOUCH_AIRKISS 就能用安可信公众号进行微信配网。</p>
+<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sssxlxwbwz/article/details/122047232">参考1</a></p>
+<h1 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h1><h2 id="MQTT平台"><a href="#MQTT平台" class="headerlink" title="MQTT平台"></a>MQTT平台</h2><h3 id="OneNet"><a href="#OneNet" class="headerlink" title="OneNet"></a>OneNet</h3><p>​	token计算麻烦得一批，连接半天发现是连接的IP错了。。。而且是官方教程？！</p>
+<p><em>好家伙，到最后发现没有APP用，控制不了</em></p>
+<blockquote>
+<p>好像是新版和旧版之间的关系，新版已经不用ip地址了，改成了域名的形式 ：studio-mqtt.heclouds.com</p>
+</blockquote>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401171745766.png" srcset="/img/loading.gif" lazyload alt="image-20240117174543729"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jessaly/article/details/108853090">成功案例</a>   ,<a target="_blank" rel="noopener" href="https://open.iot.10086.cn/doc/v5/fuse/detail/919">这个地址也行</a>，<a target="_blank" rel="noopener" href="https://open.iot.10086.cn/doc/v5/develop/detail/624">token计算工具</a>，<a target="_blank" rel="noopener" href="https://open.iot.10086.cn/doc/v5/develop/detail/mqtt">旧版的MQTT文档</a></p>
+<blockquote>
+<p>res:  products&#x2F;(产品ID)&#x2F;devices&#x2F;(设备名称)</p>
+<p>et: unix时间戳，<a target="_blank" rel="noopener" href="https://tool.chinaz.com/tools/unixtime.aspx">网站获取</a></p>
+<p>key: 设备的key</p>
+</blockquote>
+<h4 id="关于如何上传数据到onenet平台"><a href="#关于如何上传数据到onenet平台" class="headerlink" title="关于如何上传数据到onenet平台"></a>关于如何上传数据到onenet平台</h4><p>​	避雷：官方文档就是一坨，还不如直接去CSDN找。官方教程好像是OneJson，而不是”数据流“</p>
+<p>clion可以自动自动转义json格式，结果publish了半天发布不了。。。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 关于ESP32的mqtt配置</span><br><span class="hljs-type">esp_mqtt_client_config_t</span> mqtt_cfg = &#123;<br>        .broker.address.uri = <span class="hljs-string">&quot;mqtt://mqtts.heclouds.com:1883&quot;</span>,<br>        .credentials.client_id = <span class="hljs-string">&quot;esp826&quot;</span>,<br>        .credentials.username = <span class="hljs-string">&quot;NQ2cJlHtxu&quot;</span>,<br>        .credentials.authentication.password = <span class="hljs-string">&quot;version=2018-10-31&amp;res=products%2FNQ2cJlHtxu%2Fdevices%2Fesp8266&amp;et=1732986061&amp;method=md5&amp;sign=7PurO50t0PbE8YIgl2bCGw%3D%3D&quot;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="数据流一定要是数字，不能包含特殊符号，字符串那些！？"><a href="#数据流一定要是数字，不能包含特殊符号，字符串那些！？" class="headerlink" title="数据流一定要是数字，不能包含特殊符号，字符串那些！？"></a>数据流一定要是数字，不能包含特殊符号，字符串那些！？</h4><p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401221809210.png" srcset="/img/loading.gif" lazyload alt="image-20240122180902129"></p>
+<h4 id="成功的json模板"><a href="#成功的json模板" class="headerlink" title="成功的json模板"></a>成功的json模板</h4><blockquote>
+<p>资料：<a target="_blank" rel="noopener" href="https://mpython.readthedocs.io/zh/master/classic/oneNET/oneNetDatastreams.html">mpython</a>	<a target="_blank" rel="noopener" href="https://blog.csdn.net/bsy1111/article/details/134097077">成功案例</a></p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// 成功的数据流json</span><br><span class="hljs-punctuation">&#123;</span><br> <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">123</span><span class="hljs-punctuation">,</span><br> <span class="hljs-attr">&quot;dp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;temperatrue&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><br>   <span class="hljs-attr">&quot;v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">30</span><br>   <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;power&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><br>   <span class="hljs-attr">&quot;v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.5</span><br>   <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br> <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br><br><span class="hljs-comment">// 我写的json</span><br><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;123&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-comment">// 好吧，最后发现，错误是在这里，123不应该是字符串，字符串应该是OneJson的格式</span><br>    <span class="hljs-attr">&quot;dp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">111</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span> <br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="机智云"><a href="#机智云" class="headerlink" title="机智云"></a>机智云</h3><p>二次开发麻烦，比较适合那种直接使用AT指令的</p>
+<h3 id="EMQX"><a href="#EMQX" class="headerlink" title="EMQX"></a>EMQX</h3><p>​	简单好用且开源，主题没有固定，自定义程度高。<em>需要注意的是：连接默认使用的是SSL，所以要导入证书</em></p>
+<p>创建步骤：</p>
+<ol>
+<li>先部署项目</li>
+<li>在认证那里先创建一个用户</li>
+<li>然后看下图就行</li>
+</ol>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401191702053.png" srcset="/img/loading.gif" lazyload alt="image-20240119170239991"></p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401191702543.png" srcset="/img/loading.gif" lazyload alt="image-20240119170250479"></p>
+<h2 id="DHT11误差"><a href="#DHT11误差" class="headerlink" title="DHT11误差"></a>DHT11误差</h2><h3 id="出现局部误差"><a href="#出现局部误差" class="headerlink" title="出现局部误差"></a>出现局部误差</h3><p>​	也不知道是算法有问题还是什么，单一测试的时候没问题，整合起来出现的。原来是DHT11测量的时候，校验没过，所以直接就赋值100了，至于为什么没过校验就就不懂了。</p>
+<p>​	后面直接把校验给去了。。。从根源解决问题</p>
+<p><img src="http://github.xutongxin.me/https://raw.githubusercontent.com/xutongxin1/PictureBed/master/img4/202401201956600.png" srcset="/img/loading.gif" lazyload alt="image-20240120195654550"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" class="category-chain-item">单片机</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ESP8266/" class="print-no-link">#ESP8266</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ESP8266温湿度项目</div>
+      <div>https://blog.xsaistudio.cn/单片机/2024/01/17/单片机/ESP8266温湿度项目/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>YWM</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Deep-learning/2024/02/03/deep%20learning/keras%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" title="keras踩坑记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">keras踩坑记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/others/2024/01/14/others/%E6%8A%8AUbuntu%E8%A3%85%E8%BF%9B%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98/" title="把Ubuntu装进移动硬盘">
+                        <span class="hidden-mobile">把Ubuntu装进移动硬盘</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

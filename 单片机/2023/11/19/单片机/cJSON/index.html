@@ -24,7 +24,7 @@
 <meta property="og:description" content="cJSON使用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-19T06:52:15.000Z">
-<meta property="article:modified_time" content="2023-11-19T07:17:54.169Z">
+<meta property="article:modified_time" content="2023-12-03T09:04:19.264Z">
 <meta property="article:author" content="YWM">
 <meta property="article:tag" content="c">
 <meta name="twitter:card" content="summary_large_image">
@@ -196,7 +196,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          648 字
+          1.2k 字
         
       </span>
     
@@ -207,7 +207,7 @@
         
         
         
-          6 分钟
+          10 分钟
         
       </span>
     
@@ -258,13 +258,18 @@
 
 
 
-<h1 id="串口解析"><a href="#串口解析" class="headerlink" title="串口解析"></a>串口解析</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"> cJSON *json, *value;<br>json = cJSON_Parse(RxBuffer2);		<span class="hljs-comment">// 将得到的字符串解析成json形式</span><br>value = cJSON_GetObjectItem(json,<span class="hljs-string">&quot;hello&quot;</span>);		<span class="hljs-comment">// 从json中获取键值内容</span><br><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\r\n&quot;</span>, value-&gt;valueint);		<br></code></pre></td></tr></table></figure>
+<h1 id="解析json"><a href="#解析json" class="headerlink" title="解析json"></a>解析json</h1><p>解析内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">271</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;attach&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;channel&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;info&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;addr&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">208</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;rate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20000</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;rst&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 
 
 
 
 
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"> cJSON *json, *value，json_list;<br>json = cJSON_Parse(RxBuffer2);		<span class="hljs-comment">// 将得到的字符串解析成json形式</span><br>value = cJSON_GetObjectItem(json,<span class="hljs-string">&quot;command&quot;</span>);		<span class="hljs-comment">// 从json中获取键值内容</span><br><br><span class="hljs-comment">// 解析嵌套内容</span><br>cjson = cJSON_GetObjectItem(json,<span class="hljs-string">&quot;attach&quot;</span>); <span class="hljs-comment">// 相当于得到了一个新的json对象</span><br><br><span class="hljs-comment">// 解析列表内容</span><br>json_list = cJSON_GetObjectItem(cjson,<span class="hljs-string">&quot;info&quot;</span>);<br><span class="hljs-comment">// 获取列表索引为 0 的元素，</span><br>cJSON_GetObjectItem(cJSON_GetArrayItem(info, <span class="hljs-number">0</span>), <span class="hljs-string">&quot;addr&quot;</span>)-&gt;valueint;<br><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\r\n&quot;</span>, value-&gt;valueint);		<br></code></pre></td></tr></table></figure>
+
+<p>解析嵌套内容，再获取一遍对象即可</p>
 <h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45030703/article/details/106208593">cJSON</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mculover666/article/details/103796256">最好详细教程</a></p>
 
                 
               </div>
